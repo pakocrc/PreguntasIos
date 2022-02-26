@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  PreguntasIos
+
+  Created by Francisco Cordoba on 25/2/22.
+
+  English 🇺🇸
+*/
+
+"app_name" = "Preguntas";
+"splash_view_alert_title" = "Alert";
+"splash_view_reload_button_title" = "Reload";
