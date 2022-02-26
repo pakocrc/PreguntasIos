@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A1E84BC27C7FB7600DC04A1 /* GameApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1E84BB27C7FB7600DC04A1 /* GameApiService.swift */; };
+		8A1E84BE27C7FC9800DC04A1 /* GameAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1E84BD27C7FC9800DC04A1 /* GameAPIEndpoint.swift */; };
+		8A45797927C93E7800084EC3 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A45797827C93E7800084EC3 /* Typealiases.swift */; };
+		8A45797B27C9400300084EC3 /* GameAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A45797A27C9400300084EC3 /* GameAPIClient.swift */; };
+		8A45797E27C964BD00084EC3 /* APIErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A45797D27C964BD00084EC3 /* APIErrorMapper.swift */; };
+		8A45798227C9747500084EC3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A45798427C9747500084EC3 /* Localizable.strings */; };
 		8A770F1E27C7C197007B32F4 /* preguntas.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A770F1C27C7B9E9007B32F4 /* preguntas.json */; };
 		8AD4D80027C6D3CB0027A1CC /* PreguntasIosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D7FF27C6D3CB0027A1CC /* PreguntasIosApp.swift */; };
 		8AD4D80427C6D3CC0027A1CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AD4D80327C6D3CC0027A1CC /* Assets.xcassets */; };
@@ -21,24 +27,15 @@
 		8AD4D83427C6D5D50027A1CC /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D83327C6D5D50027A1CC /* GameMode.swift */; };
 		8AD4D83627C6D6180027A1CC /* FeedbackType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D83527C6D6180027A1CC /* FeedbackType.swift */; };
 		8AD4D83827C6D6340027A1CC /* FeedbackSatisfaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D83727C6D6340027A1CC /* FeedbackSatisfaction.swift */; };
-		8AD4D83B27C6D70C0027A1CC /* FetchQuestionsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D83A27C6D70C0027A1CC /* FetchQuestionsUseCase.swift */; };
-		8AD4D83F27C6D7550027A1CC /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D83E27C6D7550027A1CC /* GameService.swift */; };
+		8AD4D83B27C6D70C0027A1CC /* GameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D83A27C6D70C0027A1CC /* GameUseCase.swift */; };
 		8AD4D84327C6D7DF0027A1CC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D84227C6D7DF0027A1CC /* HomeView.swift */; };
 		8AD4D84727C6E2450027A1CC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D84627C6E2450027A1CC /* HomeViewModel.swift */; };
 		8AD4D84C27C6E5F80027A1CC /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D84B27C6E5F80027A1CC /* SplashView.swift */; };
 		8AD4D84E27C6E63E0027A1CC /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D84D27C6E63E0027A1CC /* SplashViewModel.swift */; };
 		8AD4D85127C6E92B0027A1CC /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D85027C6E92B0027A1CC /* NetworkResponse.swift */; };
 		8AD4D85427C6E9B70027A1CC /* AnyPublisher+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D85327C6E9B70027A1CC /* AnyPublisher+Create.swift */; };
-		8AD4D85627C6EC1B0027A1CC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D85527C6EC1B0027A1CC /* NetworkManager.swift */; };
-		8AD4D85827C6EC4D0027A1CC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D85727C6EC4D0027A1CC /* Result.swift */; };
-		8AD4D85B27C6EC850027A1CC /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D85A27C6EC850027A1CC /* EndpointType.swift */; };
 		8AD4D85D27C6ECB30027A1CC /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D85C27C6ECB30027A1CC /* HTTPMethod.swift */; };
-		8AD4D85F27C70DA00027A1CC /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D85E27C70DA00027A1CC /* HTTPTask.swift */; };
-		8AD4D86127C70DFD0027A1CC /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D86027C70DFD0027A1CC /* ParameterEncoding.swift */; };
-		8AD4D86327C70E1B0027A1CC /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D86227C70E1B0027A1CC /* URLParameterEncoder.swift */; };
-		8AD4D86527C70E310027A1CC /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D86427C70E310027A1CC /* JSONParameterEncoder.swift */; };
-		8AD4D86827C70FD30027A1CC /* GameApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D86727C70FD30027A1CC /* GameApi.swift */; };
-		8AD4D86B27C713B20027A1CC /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D86A27C713B20027A1CC /* Configuration.swift */; };
+		8AD4D86B27C713B20027A1CC /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D86A27C713B20027A1CC /* Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +56,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A1E84BB27C7FB7600DC04A1 /* GameApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameApiService.swift; sourceTree = "<group>"; };
+		8A1E84BD27C7FC9800DC04A1 /* GameAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAPIEndpoint.swift; sourceTree = "<group>"; };
+		8A45797827C93E7800084EC3 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		8A45797A27C9400300084EC3 /* GameAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAPIClient.swift; sourceTree = "<group>"; };
+		8A45797D27C964BD00084EC3 /* APIErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorMapper.swift; sourceTree = "<group>"; };
+		8A45798327C9747500084EC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8A45798527C9747900084EC3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8A45798627C9747A00084EC3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8A45798727C9747B00084EC3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		8A45798827C9747C00084EC3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8A770F1C27C7B9E9007B32F4 /* preguntas.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = preguntas.json; sourceTree = "<group>"; };
 		8AD4D7FC27C6D3CB0027A1CC /* PreguntasIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PreguntasIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD4D7FF27C6D3CB0027A1CC /* PreguntasIosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreguntasIosApp.swift; sourceTree = "<group>"; };
@@ -76,8 +83,7 @@
 		8AD4D83327C6D5D50027A1CC /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		8AD4D83527C6D6180027A1CC /* FeedbackType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackType.swift; sourceTree = "<group>"; };
 		8AD4D83727C6D6340027A1CC /* FeedbackSatisfaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSatisfaction.swift; sourceTree = "<group>"; };
-		8AD4D83A27C6D70C0027A1CC /* FetchQuestionsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchQuestionsUseCase.swift; sourceTree = "<group>"; };
-		8AD4D83E27C6D7550027A1CC /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
+		8AD4D83A27C6D70C0027A1CC /* GameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameUseCase.swift; sourceTree = "<group>"; };
 		8AD4D84027C6D7850027A1CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8AD4D84227C6D7DF0027A1CC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8AD4D84627C6E2450027A1CC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -85,16 +91,8 @@
 		8AD4D84D27C6E63E0027A1CC /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		8AD4D85027C6E92B0027A1CC /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		8AD4D85327C6E9B70027A1CC /* AnyPublisher+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Create.swift"; sourceTree = "<group>"; };
-		8AD4D85527C6EC1B0027A1CC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		8AD4D85727C6EC4D0027A1CC /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		8AD4D85A27C6EC850027A1CC /* EndpointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
 		8AD4D85C27C6ECB30027A1CC /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		8AD4D85E27C70DA00027A1CC /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
-		8AD4D86027C70DFD0027A1CC /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
-		8AD4D86227C70E1B0027A1CC /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
-		8AD4D86427C70E310027A1CC /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
-		8AD4D86727C70FD30027A1CC /* GameApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameApi.swift; sourceTree = "<group>"; };
-		8AD4D86A27C713B20027A1CC /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		8AD4D86A27C713B20027A1CC /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,9 +120,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A1E84BA27C7FB5D00DC04A1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8A1E84BB27C7FB7600DC04A1 /* GameApiService.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8A45797727C93E6900084EC3 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				8AD4D86A27C713B20027A1CC /* Environment.swift */,
+				8A45797827C93E7800084EC3 /* Typealiases.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		8A45797C27C964B600084EC3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8A45797D27C964BD00084EC3 /* APIErrorMapper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8A45797F27C96A7E00084EC3 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				8A45798427C9747500084EC3 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		8A770F1A27C7B9A6007B32F4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8A45797F27C96A7E00084EC3 /* Localization */,
 				8A770F1B27C7B9D7007B32F4 /* Stubs */,
 			);
 			path = Resources;
@@ -161,11 +193,12 @@
 		8AD4D7FE27C6D3CB0027A1CC /* PreguntasIos */ = {
 			isa = PBXGroup;
 			children = (
+				8A45797C27C964B600084EC3 /* Utils */,
+				8A45797727C93E6900084EC3 /* Configuration */,
 				8AD4D80327C6D3CC0027A1CC /* Assets.xcassets */,
 				8AD4D84827C6E5B40027A1CC /* DataSource */,
 				8AD4D82927C6D49B0027A1CC /* Domain */,
 				8AD4D84027C6D7850027A1CC /* Info.plist */,
-				8AD4D83C27C6D7230027A1CC /* Interactors */,
 				8AD4D84427C6E2220027A1CC /* Modules */,
 				8AD4D7FF27C6D3CB0027A1CC /* PreguntasIosApp.swift */,
 				8AD4D80527C6D3CC0027A1CC /* Preview Content */,
@@ -219,7 +252,6 @@
 				8AD4D83327C6D5D50027A1CC /* GameMode.swift */,
 				8AD4D83527C6D6180027A1CC /* FeedbackType.swift */,
 				8AD4D83727C6D6340027A1CC /* FeedbackSatisfaction.swift */,
-				8AD4D85027C6E92B0027A1CC /* NetworkResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,25 +259,9 @@
 		8AD4D83927C6D6F40027A1CC /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				8AD4D83A27C6D70C0027A1CC /* FetchQuestionsUseCase.swift */,
+				8AD4D83A27C6D70C0027A1CC /* GameUseCase.swift */,
 			);
 			path = UseCase;
-			sourceTree = "<group>";
-		};
-		8AD4D83C27C6D7230027A1CC /* Interactors */ = {
-			isa = PBXGroup;
-			children = (
-				8AD4D83D27C6D7400027A1CC /* Service */,
-			);
-			path = Interactors;
-			sourceTree = "<group>";
-		};
-		8AD4D83D27C6D7400027A1CC /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				8AD4D83E27C6D7550027A1CC /* GameService.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		8AD4D84427C6E2220027A1CC /* Modules */ = {
@@ -294,10 +310,9 @@
 		8AD4D84F27C6E7E40027A1CC /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				8AD4D86627C70FC10027A1CC /* APIs */,
+				8A1E84BA27C7FB5D00DC04A1 /* Protocols */,
 				8AD4D85927C6EC790027A1CC /* Utils */,
-				8AD4D85527C6EC1B0027A1CC /* NetworkManager.swift */,
-				8AD4D85727C6EC4D0027A1CC /* Result.swift */,
+				8A45797A27C9400300084EC3 /* GameAPIClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -313,31 +328,11 @@
 		8AD4D85927C6EC790027A1CC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8AD4D85A27C6EC850027A1CC /* EndpointType.swift */,
+				8AD4D85027C6E92B0027A1CC /* NetworkResponse.swift */,
 				8AD4D85C27C6ECB30027A1CC /* HTTPMethod.swift */,
-				8AD4D85E27C70DA00027A1CC /* HTTPTask.swift */,
-				8AD4D86027C70DFD0027A1CC /* ParameterEncoding.swift */,
-				8AD4D86227C70E1B0027A1CC /* URLParameterEncoder.swift */,
-				8AD4D86427C70E310027A1CC /* JSONParameterEncoder.swift */,
-				8AD4D86A27C713B20027A1CC /* Configuration.swift */,
+				8A1E84BD27C7FC9800DC04A1 /* GameAPIEndpoint.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		8AD4D86627C70FC10027A1CC /* APIs */ = {
-			isa = PBXGroup;
-			children = (
-				8AD4D86927C70FE00027A1CC /* GameApi */,
-			);
-			path = APIs;
-			sourceTree = "<group>";
-		};
-		8AD4D86927C70FE00027A1CC /* GameApi */ = {
-			isa = PBXGroup;
-			children = (
-				8AD4D86727C70FD30027A1CC /* GameApi.swift */,
-			);
-			path = GameApi;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,7 +421,10 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				es,
+				fr,
+				de,
+				"pt-BR",
 			);
 			mainGroup = 8AD4D7F327C6D3CB0027A1CC;
 			productRefGroup = 8AD4D7FD27C6D3CB0027A1CC /* Products */;
@@ -446,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AD4D80727C6D3CC0027A1CC /* Preview Assets.xcassets in Resources */,
+				8A45798227C9747500084EC3 /* Localizable.strings in Resources */,
 				8A770F1E27C7C197007B32F4 /* preguntas.json in Resources */,
 				8AD4D80427C6D3CC0027A1CC /* Assets.xcassets in Resources */,
 			);
@@ -493,31 +492,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AD4D85827C6EC4D0027A1CC /* Result.swift in Sources */,
 				8AD4D84E27C6E63E0027A1CC /* SplashViewModel.swift in Sources */,
 				8AD4D83427C6D5D50027A1CC /* GameMode.swift in Sources */,
-				8AD4D86327C70E1B0027A1CC /* URLParameterEncoder.swift in Sources */,
+				8A1E84BE27C7FC9800DC04A1 /* GameAPIEndpoint.swift in Sources */,
 				8AD4D82C27C6D4D90027A1CC /* Question.swift in Sources */,
 				8AD4D83827C6D6340027A1CC /* FeedbackSatisfaction.swift in Sources */,
+				8A1E84BC27C7FB7600DC04A1 /* GameApiService.swift in Sources */,
 				8AD4D80027C6D3CB0027A1CC /* PreguntasIosApp.swift in Sources */,
-				8AD4D83B27C6D70C0027A1CC /* FetchQuestionsUseCase.swift in Sources */,
-				8AD4D86527C70E310027A1CC /* JSONParameterEncoder.swift in Sources */,
+				8AD4D83B27C6D70C0027A1CC /* GameUseCase.swift in Sources */,
 				8AD4D83627C6D6180027A1CC /* FeedbackType.swift in Sources */,
-				8AD4D86827C70FD30027A1CC /* GameApi.swift in Sources */,
-				8AD4D85F27C70DA00027A1CC /* HTTPTask.swift in Sources */,
+				8A45797B27C9400300084EC3 /* GameAPIClient.swift in Sources */,
+				8A45797E27C964BD00084EC3 /* APIErrorMapper.swift in Sources */,
 				8AD4D85D27C6ECB30027A1CC /* HTTPMethod.swift in Sources */,
-				8AD4D85B27C6EC850027A1CC /* EndpointType.swift in Sources */,
 				8AD4D83227C6D5A10027A1CC /* Language.swift in Sources */,
 				8AD4D84327C6D7DF0027A1CC /* HomeView.swift in Sources */,
 				8AD4D85427C6E9B70027A1CC /* AnyPublisher+Create.swift in Sources */,
-				8AD4D85627C6EC1B0027A1CC /* NetworkManager.swift in Sources */,
 				8AD4D84727C6E2450027A1CC /* HomeViewModel.swift in Sources */,
-				8AD4D86127C70DFD0027A1CC /* ParameterEncoding.swift in Sources */,
-				8AD4D86B27C713B20027A1CC /* Configuration.swift in Sources */,
+				8AD4D86B27C713B20027A1CC /* Environment.swift in Sources */,
 				8AD4D83027C6D54F0027A1CC /* Questions.swift in Sources */,
 				8AD4D85127C6E92B0027A1CC /* NetworkResponse.swift in Sources */,
 				8AD4D82E27C6D5210027A1CC /* QuestionCategory.swift in Sources */,
-				8AD4D83F27C6D7550027A1CC /* GameService.swift in Sources */,
+				8A45797927C93E7800084EC3 /* Typealiases.swift in Sources */,
 				8AD4D84C27C6E5F80027A1CC /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,6 +548,21 @@
 			targetProxy = 8AD4D81727C6D3CC0027A1CC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8A45798427C9747500084EC3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A45798327C9747500084EC3 /* en */,
+				8A45798527C9747900084EC3 /* fr */,
+				8A45798627C9747A00084EC3 /* de */,
+				8A45798727C9747B00084EC3 /* pt-BR */,
+				8A45798827C9747C00084EC3 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8AD4D81E27C6D3CC0027A1CC /* Debug */ = {
@@ -676,11 +686,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PreguntasIos/Preview Content\"";
-				DEVELOPMENT_TEAM = GFG4A69RG7;
+				DEVELOPMENT_TEAM = 9B334YL85T;
 				ENABLE_PREVIEWS = YES;
+				ENVIRONMENT = staging;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PreguntasIos/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -693,8 +705,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.automata.preguntas.PreguntasIos;
+				PRODUCT_BUNDLE_IDENTIFIER = com.automata.preguntas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Preguntas App Provisioning Profile";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -706,11 +719,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PreguntasIos/Preview Content\"";
-				DEVELOPMENT_TEAM = GFG4A69RG7;
+				DEVELOPMENT_TEAM = 9B334YL85T;
 				ENABLE_PREVIEWS = YES;
+				ENVIRONMENT = production;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PreguntasIos/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -723,8 +738,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.automata.preguntas.PreguntasIos;
+				PRODUCT_BUNDLE_IDENTIFIER = com.automata.preguntas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Preguntas App Provisioning Profile";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

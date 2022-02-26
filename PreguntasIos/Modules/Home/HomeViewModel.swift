@@ -14,6 +14,10 @@ class HomeViewModel: ObservableObject {
     init(categories: [QuestionCategory], questions: [Question]) {
         self.categories = categories
         self.questions = questions
+
+        categories.forEach({ print("🟠 Category: \($0.rawValue)")})
+
+        questions.forEach({ print("🟢: \($0.id). \($0.en)")})
     }
 
     // MARK: - ⚙️ Helpers

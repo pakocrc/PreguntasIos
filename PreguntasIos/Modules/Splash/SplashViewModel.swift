@@ -10,29 +10,58 @@ import Foundation
 import SwiftUI
 
 class SplashViewModel: ObservableObject {
-//    private let questionsUseCase = QuestionsUseCase()
+    //    private let questionsUseCase = QuestionsUseCase()
+    private let apiClient: GameAPIClient
 
     @Published private (set) var categories: [QuestionCategory]?
     @Published private (set) var questions: [Question]?
     @Published private (set) var dataLoaded = false
+    @Published private (set) var errorMessage: String?
+    @Published var showErrorMessage = false
 
     private var cancellables = Set<AnyCancellable>()
 
-    init() {
+    init(apiClient: GameAPIClient) {
+        self.apiClient = apiClient
+
+        // loadDataMock()
         loadData()
 
         self.$categories.combineLatest(self.$questions)
             .filter({ !($0.0?.isEmpty ?? true) && !($0.1?.isEmpty ?? true) })
-            .sink { _ in
-                DispatchQueue.main.async { [weak self] in
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished: ()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }, receiveValue: { [weak self] result in
+                if let categories = result.0, !categories.isEmpty,
+                   let questions = result.1, !questions.isEmpty {
                     self?.dataLoaded.toggle()
                 }
-            }.store(in: &cancellables)
+            }).store(in: &cancellables)
     }
 
-    private func loadData() {
-        print("Loading data...")
-        loadDataMock()
+    func loadData() {
+        self.apiClient.getQuestions()
+            .sink(receiveCompletion: { [weak self] completion in
+
+                switch completion {
+                case .failure(let error):
+                    print("Unable to fetch information. Error: \(error)")
+
+                    self?.errorMessage = APIErrorMapper(error: error).message
+                    self?.showErrorMessage = true
+
+                default: break
+                }
+            }, receiveValue: { [weak self] result in
+                DispatchQueue.main.async {
+                    self?.questions = result.questions
+                    self?.categories = result.categories
+                }
+            }).store(in: &cancellables)
     }
 
     private func loadDataMock() {

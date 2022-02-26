@@ -1,14 +1,44 @@
 //
-//  FetchQuestionsUseCase.swift
+//  GameUseCase.swift
 //  PreguntasIos
 //
 //  Created by Francisco Cordoba on 23/2/22.
 //
 
 import Combine
+import Foundation
 
-class FetchQuestionsUseCase {
-    private let networkManager = NetworkManager<GameApiEndpoint>()
+protocol GameUseCaseProtocol {
+    func getQuestions()
+}
+
+class GameUseCase {
+    private var cancellables = Set<AnyCancellable>()
+
+    func getQuestions() {
+        guard var url = URL(string: Environment.baseURL.description)
+        else { return }
+
+        url.appendPathComponent("/PreguntasFunc")
+
+        let request = URLRequest(url: url)
+
+        URLSession.shared.dataTaskPublisher(for: request)
+            .map(\.data)
+            .decode(type: Questions.self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+
+                switch completion {
+                case .finished:
+                    ()
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            }, receiveValue: { questions in
+                print("✅ Questions received! \(questions.questions.count)")
+            }).store(in: &cancellables)
+    }
 
 //    func execute() -> AnyPublisher<Questions, NetworkResponse> {
 //        return AnyPublisher<Questions, NetworkResponse>.create { [weak self] promise in
