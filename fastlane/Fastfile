@@ -67,10 +67,10 @@ platform :ios do
       }
     )
 
-    scan(
-      devices: ["iPhone 13"], 
-      scheme: "PreguntasIos"
-    )
+    # scan(
+    #   devices: ["iPhone 13"], 
+    #   scheme: "PreguntasIos"
+    # )
 
     pilot(
       apple_id: "#{DEVELOPER_APP_ID}",

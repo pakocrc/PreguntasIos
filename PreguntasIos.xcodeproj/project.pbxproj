@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		8A1E84BC27C7FB7600DC04A1 /* GameApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1E84BB27C7FB7600DC04A1 /* GameApiService.swift */; };
 		8A1E84BE27C7FC9800DC04A1 /* GameAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1E84BD27C7FC9800DC04A1 /* GameAPIEndpoint.swift */; };
+		8A2E174427CBB1B5003FE06E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AD4D80327C6D3CC0027A1CC /* Assets.xcassets */; };
 		8A45797927C93E7800084EC3 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A45797827C93E7800084EC3 /* Typealiases.swift */; };
 		8A45797B27C9400300084EC3 /* GameAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A45797A27C9400300084EC3 /* GameAPIClient.swift */; };
 		8A45797E27C964BD00084EC3 /* APIErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A45797D27C964BD00084EC3 /* APIErrorMapper.swift */; };
 		8A45798227C9747500084EC3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A45798427C9747500084EC3 /* Localizable.strings */; };
 		8A770F1E27C7C197007B32F4 /* preguntas.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A770F1C27C7B9E9007B32F4 /* preguntas.json */; };
 		8AD4D80027C6D3CB0027A1CC /* PreguntasIosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D7FF27C6D3CB0027A1CC /* PreguntasIosApp.swift */; };
-		8AD4D80427C6D3CC0027A1CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AD4D80327C6D3CC0027A1CC /* Assets.xcassets */; };
 		8AD4D80727C6D3CC0027A1CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AD4D80627C6D3CC0027A1CC /* Preview Assets.xcassets */; };
 		8AD4D81127C6D3CC0027A1CC /* PreguntasIosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D81027C6D3CC0027A1CC /* PreguntasIosTests.swift */; };
 		8AD4D81B27C6D3CC0027A1CC /* PreguntasIosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D81A27C6D3CC0027A1CC /* PreguntasIosUITests.swift */; };
@@ -445,8 +445,8 @@
 			files = (
 				8AD4D80727C6D3CC0027A1CC /* Preview Assets.xcassets in Resources */,
 				8A45798227C9747500084EC3 /* Localizable.strings in Resources */,
+				8A2E174427CBB1B5003FE06E /* Assets.xcassets in Resources */,
 				8A770F1E27C7C197007B32F4 /* preguntas.json in Resources */,
-				8AD4D80427C6D3CC0027A1CC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,6 +686,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -695,9 +696,11 @@
 				ENVIRONMENT = staging;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PreguntasIos/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Preguntas;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -719,6 +722,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -728,9 +732,11 @@
 				ENVIRONMENT = production;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PreguntasIos/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Preguntas;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
