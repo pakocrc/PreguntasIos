@@ -23,8 +23,10 @@ struct PreguntasIosApp: App {
                         loadingData.toggle()
                     }
             } else {
-                HomeView(viewModel: HomeViewModel(categories: splashViewModel.categories ?? [],
-                                                  questions: splashViewModel.questions ?? []))
+                NavigationView {
+                    HomeView(viewModel: HomeViewModel(categories: splashViewModel.categories ?? [],
+                                                      questions: splashViewModel.questions ?? []))
+                }
             }
         }
     }

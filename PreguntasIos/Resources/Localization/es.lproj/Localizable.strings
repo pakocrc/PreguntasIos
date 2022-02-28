@@ -8,5 +8,35 @@
 */
 
 "app_name" = "Preguntas";
+
+// MARK: - Splash
 "splash_view_alert_title" = "Alerta";
 "splash_view_reload_button_title" = "Recargar";
+
+// MARK: - Errors
+"api_error_mapper_unreachable" = "Sin conexión. Por favor verifica tu conexión a internet e intenta de nuevo.";
+"api_error_mapper_failed_request" = "Ocurrió un error. Por favor verifica tu conexión a internet e intenta de nuevo.";
+
+// MARK: - Categories
+"category_friends" = "Amigos";
+"category_life" = "Vida";
+"category_dirty" = "Atrevidas";
+"category_mixed" = "Combinadas";
+"category_all" = "Todas";
+
+// MARK: - Settings
+"settings_title" = "Configuración";
+
+"settings_profile" = "Perfil";
+"settings_profile_players" = "Jugadores";
+"settings_profile_language" = "Lenguaje";
+
+"settings_membership" = "Membresía";
+"settings_membership_premium" = "Prémium";
+"settings_membership_restore_purchase" = "Restaurar Compra";
+
+"settings_more" = "Otros";
+"settings_more_rate_app" = "Calificar app";
+"settings_more_feedback" = "Comentarios";
+"settings_more_terms_and_conditions" = "Terminos y Condicioones";
+"settings_more_privacy_policy" = "Política de Privacidad";

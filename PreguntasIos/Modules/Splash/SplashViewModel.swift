@@ -10,7 +10,6 @@ import Foundation
 import SwiftUI
 
 class SplashViewModel: ObservableObject {
-    //    private let questionsUseCase = QuestionsUseCase()
     private let apiClient: GameAPIClient
 
     @Published private (set) var categories: [QuestionCategory]?
@@ -44,6 +43,7 @@ class SplashViewModel: ObservableObject {
     }
 
     func loadData() {
+
         self.apiClient.getQuestions()
             .sink(receiveCompletion: { [weak self] completion in
 

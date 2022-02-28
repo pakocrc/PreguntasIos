@@ -8,6 +8,10 @@
 import Combine
 import Foundation
 
+protocol GameApiService {
+    func getQuestions() -> AnyPublisher<Questions, APIError>
+}
+
 final class GameAPIClient: GameApiService {
     func getQuestions() -> AnyPublisher<Questions, APIError> {
         request(.getQuestions)

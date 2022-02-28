@@ -15,6 +15,9 @@ class HomeViewModel: ObservableObject {
         self.categories = categories
         self.questions = questions
 
+        self.categories.append(QuestionCategory.mixed)
+        self.categories.append(QuestionCategory.all)
+
         categories.forEach({ print("🟠 Category: \($0.rawValue)")})
 
         questions.forEach({ print("🟢: \($0.id). \($0.en)")})
