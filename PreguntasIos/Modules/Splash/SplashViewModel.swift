@@ -9,7 +9,7 @@ import Combine
 import Foundation
 import SwiftUI
 
-class SplashViewModel: ObservableObject {
+final class SplashViewModel: ObservableObject {
     private let apiClient: GameAPIClient
 
     @Published private (set) var categories: [QuestionCategory]?
@@ -79,5 +79,9 @@ class SplashViewModel: ObservableObject {
                 self?.categories = [QuestionCategory.friends, QuestionCategory.life, QuestionCategory.dirty]
             }
         }
+    }
+
+    deinit {
+        print("SplashViewModel deinit 🗑")
     }
 }

@@ -40,7 +40,7 @@ enum APIEndpoint {
     }
 
     private var url: URL {
-        Environment.baseURL.appendingPathComponent(path)
+        EnvironmentConfig.baseURL.appendingPathComponent(path)
     }
 
     private var path: String {

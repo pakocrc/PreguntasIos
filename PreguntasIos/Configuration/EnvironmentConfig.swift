@@ -1,5 +1,5 @@
 //
-//  Environment.swift
+//  EnvironmentConfig.swift
 //  PreguntasIos
 //
 //  Created by Francisco Cordoba on 23/2/22.
@@ -7,15 +7,15 @@
 
 import Foundation
 
-enum Environment: String {
+enum EnvironmentConfig: String {
     case staging, production
 
-    static let current: Environment = {
+    static let current: EnvironmentConfig = {
         guard let rawValue = Bundle.main.infoDictionary?["Environment"] as? String else {
             fatalError("No environment found")
         }
 
-        guard let environment = Environment(rawValue: rawValue.lowercased()) else {
+        guard let environment = EnvironmentConfig(rawValue: rawValue.lowercased()) else {
             fatalError("Invalid environment")
         }
 

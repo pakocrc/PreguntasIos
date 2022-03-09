@@ -16,7 +16,7 @@ class GameUseCase {
     private var cancellables = Set<AnyCancellable>()
 
     func getQuestions() {
-        guard var url = URL(string: Environment.baseURL.description)
+        guard var url = URL(string: EnvironmentConfig.baseURL.description)
         else { return }
 
         url.appendPathComponent("/PreguntasFunc")

@@ -40,3 +40,10 @@
 "settings_more_feedback" = "Comentarios";
 "settings_more_terms_and_conditions" = "Terminos y Condicioones";
 "settings_more_privacy_policy" = "Política de Privacidad";
+
+// MARK: - Players Setup
+"players_setup_title" = "Jugadores";
+"players_setup_header" = "¿Quienes juegan?";
+"players_setup_done_button" = "Continuar";
+"players_setup_new_player_placeholder" = "Jugador %@";
+"players_setup_subheader" = "Agrega el nombre de los jugadores";

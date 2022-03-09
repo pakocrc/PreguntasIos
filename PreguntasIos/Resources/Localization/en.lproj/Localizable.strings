@@ -40,3 +40,10 @@
 "settings_more_feedback" = "Feedback";
 "settings_more_terms_and_conditions" = "Terms and Conditions";
 "settings_more_privacy_policy" = "Privacy Policy";
+
+// MARK: - Players Setup
+"players_setup_title" = "Players";
+"players_setup_header" = "Who is playing?";
+"players_setup_done_button" = "Done!";
+"players_setup_new_player_placeholder" = "Player %@";
+"players_setup_subheader" = "First things first, add the name of the players";

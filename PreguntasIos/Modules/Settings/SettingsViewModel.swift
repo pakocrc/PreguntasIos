@@ -29,7 +29,8 @@ struct AppSettings {
     let more: [MoreSettings]
 }
 
-class SettingsViewModel: ObservableObject {
+final class SettingsViewModel: ObservableObject, Identifiable {
+    let id = UUID().uuidString
     @Published private (set) var settings: AppSettings
 
     init() {
@@ -48,5 +49,9 @@ class SettingsViewModel: ObservableObject {
 
     func moreSettingSelected(_ moreSetting: AppSettings.MoreSettings) {
         print("More setting selected: \(moreSetting.rawValue)")
+    }
+
+    deinit {
+        print("SettingsViewModel deinit 🗑")
     }
 }

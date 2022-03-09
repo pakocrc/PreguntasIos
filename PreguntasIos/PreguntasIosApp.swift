@@ -19,14 +19,12 @@ struct PreguntasIosApp: App {
             if loadingData {
                 SplashView(viewModel: splashViewModel)
                     .onReceive(splashViewModel.$dataLoaded.filter({ $0 == true })) { _ in
-                        // Data loaded. Show home view.
                         loadingData.toggle()
                     }
             } else {
-                NavigationView {
-                    HomeView(viewModel: HomeViewModel(categories: splashViewModel.categories ?? [],
-                                                      questions: splashViewModel.questions ?? []))
-                }
+                    HomeCoordinatorView(coordinator:
+                    HomeCoordinator(categories: splashViewModel.categories ?? [],
+                                      questions: splashViewModel.questions ?? []))
             }
         }
     }
