@@ -11,6 +11,7 @@ enum APIEndpoint {
     case getQuestions
     case gameStarted(players: [Player], language: Language)
     case suggestQuestion(question: String, language: Language, user: String)
+    case questionFeedback(feedbackType: FeedbackType, feedback: String, question: String, language: Language)
 
     //    case episodes
     //    case video(id: String)
@@ -41,6 +42,8 @@ enum APIEndpoint {
             return "game"
         case .suggestQuestion:
             return "question/suggest"
+        case .questionFeedback:
+            return "feedback/question"
             //        case .episodes:
             //            return "episodes"
             //        case let .video(id: id):
@@ -58,7 +61,7 @@ enum APIEndpoint {
             return .get
         case .gameStarted:
             return .put
-        case .suggestQuestion:
+        case .suggestQuestion, .questionFeedback:
             return .post
         }
     }
@@ -74,6 +77,13 @@ enum APIEndpoint {
         case .suggestQuestion(let question, let language, let user):
             let jsonString: [String: Any] = ["question": question,
                                              "user": user,
+                                             "lang": language.rawValue]
+            return try? JSONSerialization.data(withJSONObject: jsonString)
+
+        case .questionFeedback(let feedbackType, let feedback, let question, let language):
+            let jsonString: [String: Any] = ["type": feedbackType.rawValue,
+                                             "feedback": feedback,
+                                             "question": question,
                                              "lang": language.rawValue]
             return try? JSONSerialization.data(withJSONObject: jsonString)
 

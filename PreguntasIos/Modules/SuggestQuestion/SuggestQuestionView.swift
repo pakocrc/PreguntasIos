@@ -38,16 +38,8 @@ struct SuggestQuestionView: View {
                                           .multilineTextAlignment(.leading)
                                           .frame(height: 45, alignment: .topLeading)
                                           .padding(.all)
-                                          .foregroundColor(
-                                            colorScheme == .light ?
-                                            Color.secondary :
-                                                Color.primary
-                                          )
-                                          .background(
-                                            colorScheme == .light ?
-                                            textFieldLightColor :
-                                                Color.secondary
-                                          )
+                                          .foregroundColor(colorScheme == .light ? Color.secondary : Color.primary)
+                                          .background(colorScheme == .light ?textFieldLightColor : Color.secondary)
                                           .cornerRadius(5)
                                           .padding(.bottom, 30)
 
@@ -107,8 +99,7 @@ struct SuggestQuestionView: View {
                 Button(NSLocalizedString("ok", comment: ""), action: {
                     viewModel.dismissViewAction()
                 })
-            },
-                   message: { Text(viewModel.alertMessage ?? "") })
+            }, message: { Text(viewModel.alertMessage ?? "") })
             .navigationTitle(NSLocalizedString("suggest_question_view_title", comment: ""))
             .toolbar(content: {
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {

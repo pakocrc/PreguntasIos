@@ -22,6 +22,8 @@
 		8ABA139927DEA9A40001023C /* SuggestQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABA139827DEA9A40001023C /* SuggestQuestionView.swift */; };
 		8ABA139C27DEB13A0001023C /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABA139B27DEB13A0001023C /* GameCoordinator.swift */; };
 		8ABA139E27DEB1440001023C /* GameCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABA139D27DEB1440001023C /* GameCoordinatorView.swift */; };
+		8ABA13A127DEE95F0001023C /* QuestionFeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABA13A027DEE95E0001023C /* QuestionFeedbackViewModel.swift */; };
+		8ABA13A327DEE9670001023C /* QuestionFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABA13A227DEE9670001023C /* QuestionFeedbackView.swift */; };
 		8AD3EA6427D28C4200951276 /* HomeCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3EA6327D28C4200951276 /* HomeCoordinatorView.swift */; };
 		8AD3EA6627D28C6800951276 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3EA6527D28C6800951276 /* HomeCoordinator.swift */; };
 		8AD4D80027C6D3CB0027A1CC /* PreguntasIosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D7FF27C6D3CB0027A1CC /* PreguntasIosApp.swift */; };
@@ -85,6 +87,8 @@
 		8ABA139827DEA9A40001023C /* SuggestQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestQuestionView.swift; sourceTree = "<group>"; };
 		8ABA139B27DEB13A0001023C /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
 		8ABA139D27DEB1440001023C /* GameCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinatorView.swift; sourceTree = "<group>"; };
+		8ABA13A027DEE95E0001023C /* QuestionFeedbackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionFeedbackViewModel.swift; sourceTree = "<group>"; };
+		8ABA13A227DEE9670001023C /* QuestionFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionFeedbackView.swift; sourceTree = "<group>"; };
 		8AD3EA6327D28C4200951276 /* HomeCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorView.swift; sourceTree = "<group>"; };
 		8AD3EA6527D28C6800951276 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		8AD4D7FC27C6D3CB0027A1CC /* PreguntasIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PreguntasIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +228,15 @@
 			path = GameCoordinator;
 			sourceTree = "<group>";
 		};
+		8ABA139F27DEE9410001023C /* QuestionFeedback */ = {
+			isa = PBXGroup;
+			children = (
+				8ABA13A027DEE95E0001023C /* QuestionFeedbackViewModel.swift */,
+				8ABA13A227DEE9670001023C /* QuestionFeedbackView.swift */,
+			);
+			path = QuestionFeedback;
+			sourceTree = "<group>";
+		};
 		8AD3EA6227D28C3300951276 /* HomeCoordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +333,7 @@
 		8AD4D84427C6E2220027A1CC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8ABA139F27DEE9410001023C /* QuestionFeedback */,
 				8ABA139A27DEB12C0001023C /* GameCoordinator */,
 				8ABA139527DEA97E0001023C /* SuggestQuestion */,
 				8ABA138C27DE80DA0001023C /* AllQuestions */,
@@ -580,8 +594,10 @@
 				8AD4D85127C6E92B0027A1CC /* NetworkResponse.swift in Sources */,
 				8AFE69F627CF991F00BA719F /* PlayersSetupView.swift in Sources */,
 				8AD4D82E27C6D5210027A1CC /* QuestionCategory.swift in Sources */,
+				8ABA13A127DEE95F0001023C /* QuestionFeedbackViewModel.swift in Sources */,
 				8A45797927C93E7800084EC3 /* Typealiases.swift in Sources */,
 				8AFE6A0427D0492200BA719F /* Player.swift in Sources */,
+				8ABA13A327DEE9670001023C /* QuestionFeedbackView.swift in Sources */,
 				8AD4D84C27C6E5F80027A1CC /* SplashView.swift in Sources */,
 				8ABA139027DE80F60001023C /* AllQuestionsView.swift in Sources */,
 			);

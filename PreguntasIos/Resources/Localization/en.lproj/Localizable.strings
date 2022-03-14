@@ -74,3 +74,15 @@
 "suggest_question_view_type_name_flag_placeholder" = "Type name + flag here...";
 "suggest_question_view_error" = "Unable to send suggested question. Please try again.";
 "suggest_question_view_success" = "Suggestion sent successfully!";
+
+// MARK: - Question Feedback
+"question_feedback_view_feedback_type_bad_translation" = "Bad translation";
+"question_feedback_view_feedback_type_inappropiate_or_offensive" = "Inappropiate or offensive";
+"question_feedback_view_feedback_type_mood_killer" = "Mood killer";
+"question_feedback_view_feedback_type_other" = "Other";
+"question_feedback_view_title" = "Feedback";
+"question_feedback_view_header" = "Feedback help us improve. Please tell us why you don't like this question";
+"question_feedback_view_next_button" = "Send";
+"question_feedback_view_text_field_placeholder" = "Anything else you want to tell us?";
+"question_feedback_view_error" = "Unable to send question feedback. Please try again.";
+"question_feedback_view_success" = "Feedback sent successfully!";

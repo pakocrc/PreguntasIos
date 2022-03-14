@@ -12,6 +12,10 @@ protocol GameApiService {
     func getQuestions() -> AnyPublisher<Questions, APIError>
     func gameStarted(players: [Player], language: Language) -> AnyPublisher<String, APIError>
     func suggestQuestion(question: String, language: Language, user: String) -> AnyPublisher<String, APIError>
+    func questionFeedback(feedbackType: FeedbackType,
+                          feedback: String,
+                          question: String,
+                          language: Language) -> AnyPublisher<String, APIError>
 }
 
 final class GameAPIClient: GameApiService {
@@ -27,6 +31,15 @@ final class GameAPIClient: GameApiService {
         request(.suggestQuestion(question: question, language: language, user: user))
     }
 
+    func questionFeedback(feedbackType: FeedbackType,
+                          feedback: String,
+                          question: String,
+                          language: Language) -> AnyPublisher<String, APIError> {
+        request(.questionFeedback(feedbackType: feedbackType,
+                                  feedback: feedback,
+                                  question: question,
+                                  language: language))
+    }
 }
 
 extension GameAPIClient {

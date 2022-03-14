@@ -37,7 +37,7 @@ struct GameView: View {
                     }
                 }).padding()
 
-                Button(action: viewModel.reportQuestionButtonPressed, label: {
+                Button(action: viewModel.questionFeedbackButtonPressed, label: {
                     Image(systemName: "hand.thumbsdown")
                 }).padding()
 

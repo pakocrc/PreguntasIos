@@ -13,6 +13,7 @@ final class GameCoordinator: ObservableObject {
     @Published var gameViewModel: GameViewModel?
     @Published var allQuestionsViewModel: AllQuestionsViewModel?
     @Published var suggestQuestionViewModel: SuggestQuestionViewModel?
+    @Published var questionFeedbackViewModel: QuestionFeedbackViewModel?
 
     // MARK: Error
     @Published private (set) var errorMessage: String?
@@ -53,5 +54,9 @@ final class GameCoordinator: ObservableObject {
 
     func suggestQuestionView() {
         self.suggestQuestionViewModel = SuggestQuestionViewModel(gameAPIService: gameAPIService)
+    }
+
+    func questionFeedbackView(question: Question) {
+        self.questionFeedbackViewModel = QuestionFeedbackViewModel(gameAPIService: gameAPIService, question: question)
     }
 }

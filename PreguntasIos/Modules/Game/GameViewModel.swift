@@ -65,8 +65,10 @@ final class GameViewModel: ObservableObject {
         }
     }
 
-    func reportQuestionButtonPressed() {
-        print("reportQuestionButtonPressed")
+    func questionFeedbackButtonPressed() {
+        if let currentQuestion = self.currentQuestion {
+            parent.questionFeedbackView(question: currentQuestion)
+        }
     }
 
     func suggestQuestionButtonPressed() {

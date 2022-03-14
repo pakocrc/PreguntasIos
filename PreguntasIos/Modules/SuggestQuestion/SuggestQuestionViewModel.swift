@@ -16,7 +16,7 @@ final class SuggestQuestionViewModel: ObservableObject, Identifiable {
     @Published var loading = false
     @Published var dismissView = false
 
-    // MARK: Error
+    // MARK: Alert and Error
     @Published private (set) var alertMessage: String?
     @Published var showErrorMessage = false
     @Published var showAlertMessage = false
