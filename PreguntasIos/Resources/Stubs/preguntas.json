@@ -1,20 +1,52 @@
-[
-    {
-        "id": "1",
-        "category": "FRIENDS",
-        "es": "¿Cómo estás?",
-        "en": "How are you?",
-        "pt": "Como vai?",
-        "fr": "Comment allez-vous?",
-        "de": "Wie gehts?"
-    },
-    {
-        "id": "2",
-        "category": "LIFE",
-        "es": "¿Cómo te llamas?",
-        "en": "What is your name?",
-        "pt": "Qual é seu nome?",
-        "fr": "Comment tu t'appelles?",
-        "de": "Wie heißen Sie?"
-    }
-]
+{
+    "categories": [
+        "FRIENDS",
+        "LIFE",
+        "DIRTY"
+    ],
+    "questions": [{
+            "id": "1",
+            "category": "FRIENDS",
+            "es": "¿Cómo estás?",
+            "en": "How are you?",
+            "pt": "Como vai?",
+            "fr": "Comment allez-vous?",
+            "de": "Wie gehts?",
+            "author": "Anonymous",
+            "country": ""
+        },
+        {
+            "id": "2",
+            "category": "LIFE",
+            "es": "¿Cómo te llamas?",
+            "en": "What is your name?",
+            "pt": "Qual é seu nome?",
+            "fr": "Comment tu t'appelles?",
+            "de": "Wie heißen Sie?",
+            "author": "Anonymous",
+            "country": ""
+        },
+        {
+            "id": "3",
+            "category": "FRIENDS",
+            "es": "¿Donde vives?",
+            "en": "Where do you live?",
+            "pt": "Qual é seu casa?",
+            "fr": "Comment tu t'casa?",
+            "de": "Wie heißen casa?",
+            "author": "Anonymous",
+            "country": ""
+        },
+        {
+            "id": "4",
+            "category": "DIRTY",
+            "es": "¿Que haces?",
+            "en": "What are you doing?",
+            "pt": "Qual é doing?",
+            "fr": "Comment tu doing?",
+            "de": "Wie heißen doing?",
+            "author": "Anonymous",
+            "country": ""
+        }
+    ]
+}

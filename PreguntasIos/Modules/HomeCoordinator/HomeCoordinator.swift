@@ -11,26 +11,24 @@ final class HomeCoordinator: ObservableObject {
     // MARK: - View Models
     @Published var settingsViewModel: SettingsViewModel?
     @Published var playersSetupViewModel: PlayersSetupViewModel?
-    @Published var gameViewModel: GameViewModel?
+
+    @Published var gameCoordinator: GameCoordinator?
+
+    // MARK: Error
+    @Published private (set) var errorMessage: String?
+    @Published var showErrorMessage = false
 
     // MARK: - Data
-    @Published private (set) var categories: [QuestionCategory]
-    @Published private (set) var questions: [Question]
+    @Published private (set) var questions: Questions
     @Published private (set) var setupPlayers: Bool
 
-    init(categories: [QuestionCategory], questions: [Question]) {
-        self.categories = categories
+    private let gameAPIService = GameAPIClient()
+
+    init(questions: Questions) {
         self.questions = questions
 
-        //     if setupPlayers logic in user defaults {
-                self.setupPlayers = true
-        //    }
-
-        self.categories.append(QuestionCategory.mixed)
-        self.categories.append(QuestionCategory.all)
-
-        categories.forEach({ print("🟠 Category: \($0.rawValue)")})
-        questions.forEach({ print("🟢: \($0.id). \($0.en)")})
+//        UserDefaults.standard.removeObject(forKey: "users")
+        self.setupPlayers = UserSettings().players.isEmpty
     }
 
     // MARK: - ⚙️ Helpers
@@ -42,11 +40,13 @@ final class HomeCoordinator: ObservableObject {
         self.playersSetupViewModel = PlayersSetupViewModel()
     }
 
-    func openGameView(category: QuestionCategory) {
-        // TODO: get players from user defaults
-        let players = [Player(name: "Pako"), Player(name: "Mali")]
+    func openGameCoordinator(category: QuestionCategory) {
+        self.gameCoordinator = GameCoordinator(questions: questions, category: category, gameAPIService: gameAPIService)
+    }
 
-        self.gameViewModel = GameViewModel(category: category, players: players)
+    func playerSetupChanged(category: QuestionCategory) {
+        self.setupPlayers = false
+        self.gameCoordinator = GameCoordinator(questions: questions, category: category, gameAPIService: gameAPIService)
     }
 
     deinit {

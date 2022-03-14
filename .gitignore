@@ -31,6 +31,8 @@ DerivedData/
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace
+PreguntasIos/Resources/MyPlayground.playground/*
+*.xcplayground
 
 ## APNS
 *.apns

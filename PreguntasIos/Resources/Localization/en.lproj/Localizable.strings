@@ -8,10 +8,13 @@
 */
 
 "app_name" = "Preguntas";
+"alert" = "Alert";
 
 // MARK: - Splash
-"splash_view_alert_title" = "Alert";
 "splash_view_reload_button_title" = "Reload";
+
+// MARK: - Home
+"home_coordinator_no_liked_questions_error_message" = "No favorite questions yet. After you save any question as favorite (❤️) it will appear here 🙂";
 
 // MARK: - Errors
 "api_error_mapper_unreachable" = "Network connection failed. Please check your internet connection.";
@@ -22,6 +25,7 @@
 "category_life" = "Life";
 "category_dirty" = "Dirty";
 "category_mixed" = "Mixed";
+"category_liked" = "Favorites";
 "category_all" = "All";
 
 // MARK: - Settings
@@ -47,3 +51,22 @@
 "players_setup_done_button" = "Done!";
 "players_setup_new_player_placeholder" = "Player %@";
 "players_setup_subheader" = "First things first, add the name of the players";
+
+// MARK: - Game View
+"game_view_responds_title" = "Responds";
+"game_view_next_button" = "Next";
+"game_view_empty_question" = "Error loading data. Please try with the next one.";
+
+// MARK: - All Questions
+"all_questions_view_title" = "All Questions";
+"all_questions_view_empty_question" = "Error while loading question";
+
+// MARK: - Suggest Question
+"suggest_question_view_title" = "Suggest Question";
+"suggest_question_view_next_button" = "Send";
+"suggest_question_view_anonymous" = "Anonymous";
+"suggest_question_view_type_question_placeholder" = "Type question here...";
+"suggest_question_view_name_flag" = "Name + Flag 🏳️";
+"suggest_question_view_name_flag_optional" = "(Optional)";
+"suggest_question_view_type_name_flag_placeholder" = "Type name + flag here...";
+"suggest_question_view_error" = "Unable to send suggested question. Please try again.";

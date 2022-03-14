@@ -18,6 +18,7 @@ extension View {
                 }
             }
         )
+
         return NavigationLink(
             destination: EmptyView(),
             isActive: isActive
@@ -77,5 +78,4 @@ extension NavigationLink {
             label: label
         )
     }
-
 }

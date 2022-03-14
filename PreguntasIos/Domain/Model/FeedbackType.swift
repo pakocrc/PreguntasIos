@@ -6,5 +6,5 @@
 //
 
 enum FeedbackType {
-    case badTranslation, inappropiateOrOffensive, moodKiller
+    case badTranslation, inappropiateOrOffensive, moodKiller, other
 }

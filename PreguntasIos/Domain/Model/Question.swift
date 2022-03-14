@@ -5,7 +5,7 @@
 //  Created by Francisco Cordoba on 23/2/22.
 //
 
-struct Question: Decodable {
+struct Question: Decodable, Identifiable {
     let id: String
     let category: QuestionCategory
     let es: String

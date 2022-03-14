@@ -23,8 +23,8 @@ struct PreguntasIosApp: App {
                     }
             } else {
                     HomeCoordinatorView(coordinator:
-                    HomeCoordinator(categories: splashViewModel.categories ?? [],
-                                      questions: splashViewModel.questions ?? []))
+                                            HomeCoordinator(questions: splashViewModel.questions ??
+                                                            Questions(questions: [], categories: [])))
             }
         }
     }

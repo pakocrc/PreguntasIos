@@ -13,8 +13,6 @@ final class PlayersSetupViewModel: ObservableObject, Identifiable {
     @Published var dismissView = false
 
     init() {
-//        self.addPlayerDefaultPlayer()
-//        self.addPlayerDefaultPlayer()
         addPlayer(player: Player(name: ""))
         addPlayer(player: Player(name: ""))
     }
@@ -44,7 +42,8 @@ final class PlayersSetupViewModel: ObservableObject, Identifiable {
     }
 
     func continueButtonPressed() {
-        // USerdefaults. add players
+        var userSettings = UserSettings()
+        userSettings.players = self.players
         dismissView = true
     }
 
