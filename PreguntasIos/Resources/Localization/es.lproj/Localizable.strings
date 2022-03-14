@@ -12,6 +12,7 @@
 "continue" = "Continuar";
 "accept" = "Aceptar";
 "ok" = "OK";
+"cancel" = "Cancelar";
 
 // MARK: - Splash
 "splash_view_reload_button_title" = "Recargar";
@@ -86,3 +87,12 @@
 "question_feedback_view_text_field_placeholder" = "¿Algo más que quieras decirnos?";
 "question_feedback_view_error" = "No fue posible enviar el feedback. Por favor intenta de nuevo.";
 "question_feedback_view_success" = "Feedback enviado exitosamente";
+
+// MARK: - Language View
+"language_view_title" = "Languaje";
+"language_view_en" = "Inglés 🇺🇸";
+"language_view_es" = "Español 🇨🇷";
+"language_view_fr" = "Francés 🇫🇷";
+"language_view_pt" = "Portugués 🇧🇷";
+"language_view_de" = "Alemán 🇩🇪";
+"language_view_confirm_language_change" = "¿Seguro que deseas cambiar el lenguaje? El app se reiniciará luego del cambio";

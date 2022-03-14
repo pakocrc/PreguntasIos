@@ -18,7 +18,7 @@ struct GameCoordinatorView: View {
             .sheet(item: $coordinator.questionFeedbackViewModel) { viewModel in
                 QuestionFeedbackView(viewModel: viewModel)
             }
-            .alert(NSLocalizedString("alert", comment: "Alert"),
+            .alert("alert".localized(),
                    isPresented: $coordinator.showErrorMessage,
                    actions: { },
                    message: { Text(coordinator.errorMessage ?? "") })

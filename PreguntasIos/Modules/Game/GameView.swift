@@ -49,7 +49,7 @@ struct GameView: View {
             Spacer()
 
             Button(action: viewModel.nextButtonPressed, label: {
-                Text(NSLocalizedString("game_view_next_button", comment: ""))
+                Text("game_view_next_button".localized())
                     .font(Font.body)
                     .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
             })
@@ -63,7 +63,7 @@ struct GameView: View {
 
     func getQuestionString(_ randomQuestion: Question?) -> String {
         var questionString = ""
-        let emptyQuestionString = NSLocalizedString("game_view_empty_question", comment: "")
+        let emptyQuestionString = "game_view_empty_question".localized()
 
         switch viewModel.preferedLanguage {
         case .en: questionString = randomQuestion?.en ?? emptyQuestionString

@@ -12,6 +12,7 @@
 "continue" = "Continue";
 "accept" = "Accept";
 "ok" = "OK";
+"cancel" = "Cancel";
 
 // MARK: - Splash
 "splash_view_reload_button_title" = "Reload";
@@ -86,3 +87,12 @@
 "question_feedback_view_text_field_placeholder" = "Anything else you want to tell us?";
 "question_feedback_view_error" = "Unable to send question feedback. Please try again.";
 "question_feedback_view_success" = "Feedback sent successfully!";
+
+// MARK: - Language View
+"language_view_title" = "Language";
+"language_view_en" = "English 🇺🇸";
+"language_view_es" = "Spanish 🇨🇷";
+"language_view_fr" = "French 🇫🇷";
+"language_view_pt" = "Portuguese 🇧🇷";
+"language_view_de" = "German 🇩🇪";
+"language_view_confirm_language_change" = "Are you sure you want to change the language? App will restart after you change the language";

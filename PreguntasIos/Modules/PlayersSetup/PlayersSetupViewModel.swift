@@ -53,12 +53,12 @@ final class PlayersSetupViewModel: ObservableObject, Identifiable {
 
     // MARK: - Helpers
 //    private func getPlayerName() -> String {
-//        let playerPlaceholder = NSLocalizedString("players_setup_new_player_placeholder", comment: "")
+//        let playerPlaceholder = "players_setup_new_player_placeholder".localized()
 //        return String(format: playerPlaceholder, players.count.description)
 //    }
 //
 //    private func getUnorderedPlayerName() -> String {
-//        let playerPlaceholder = NSLocalizedString("players_setup_new_player_placeholder", comment: "")
+//        let playerPlaceholder = "players_setup_new_player_placeholder".localized()
 //        return String(format: playerPlaceholder,
 //                      Int.random(in: ClosedRange(uncheckedBounds: (players.count, 100))).description)
 //    }

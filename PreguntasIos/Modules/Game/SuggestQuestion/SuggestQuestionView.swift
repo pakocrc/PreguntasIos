@@ -33,8 +33,7 @@ struct SuggestQuestionView: View {
 
                 VStack(alignment: .leading) {
                     TextField(text: $question, prompt: Text(
-                        NSLocalizedString("suggest_question_view_type_question_placeholder",
-                                          comment: ""))) { }
+                        "suggest_question_view_type_question_placeholder".localized())) { }
                                           .multilineTextAlignment(.leading)
                                           .frame(height: 45, alignment: .topLeading)
                                           .padding(.all)
@@ -44,18 +43,17 @@ struct SuggestQuestionView: View {
                                           .padding(.bottom, 30)
 
                     HStack {
-                        Text(NSLocalizedString("suggest_question_view_name_flag", comment: ""))
+                        Text("suggest_question_view_name_flag".localized())
                             .font(.headline)
                             .fontWeight(.semibold)
-                        Text(NSLocalizedString("suggest_question_view_name_flag_optional", comment: ""))
+                        Text("suggest_question_view_name_flag_optional".localized())
                             .font(.caption)
                             .fontWeight(.regular)
                     }.padding(.leading)
 
                     TextField(text: $user,
                               prompt: Text(
-                                NSLocalizedString("suggest_question_view_type_name_flag_placeholder",
-                                                  comment: ""))) { }
+                                "suggest_question_view_type_name_flag_placeholder".localized())) { }
                                                   .multilineTextAlignment(.leading)
                                                   .frame(height: 30, alignment: .topLeading)
                                                   .padding(.all)
@@ -76,7 +74,7 @@ struct SuggestQuestionView: View {
                     Button(action: {
                         viewModel.sendButtonPressed(question: question, user: user)
                     }, label: {
-                        Text(NSLocalizedString("suggest_question_view_next_button", comment: ""))
+                        Text("suggest_question_view_next_button".localized())
                             .font(Font.body)
                             .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
                     })
@@ -89,18 +87,18 @@ struct SuggestQuestionView: View {
                 }
                 .padding()
             }
-            .alert(NSLocalizedString("alert", comment: "Alert"),
+            .alert("alert".localized(),
                    isPresented: $viewModel.showErrorMessage,
                    actions: { },
                    message: { Text(viewModel.alertMessage ?? "") })
-            .alert(NSLocalizedString("alert", comment: "Alert"),
+            .alert("alert".localized(),
                    isPresented: $viewModel.showAlertMessage,
                    actions: {
-                Button(NSLocalizedString("ok", comment: ""), action: {
+                Button("ok".localized(), action: {
                     viewModel.dismissViewAction()
                 })
             }, message: { Text(viewModel.alertMessage ?? "") })
-            .navigationTitle(NSLocalizedString("suggest_question_view_title", comment: ""))
+            .navigationTitle("suggest_question_view_title".localized())
             .toolbar(content: {
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
                     Button(action: {

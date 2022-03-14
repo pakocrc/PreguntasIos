@@ -12,7 +12,7 @@ struct SplashView: View {
 
     var body: some View {
         VStack {
-            Text(NSLocalizedString("app_name", comment: "App name").uppercased())
+            Text("app_name".localized().uppercased())
                 .fontWeight(.bold)
                 .font(.largeTitle)
                 .padding()
@@ -22,9 +22,9 @@ struct SplashView: View {
                 .font(.largeTitle)
                 .padding()
         }
-        .alert(NSLocalizedString("alert", comment: "Alert"),
+        .alert("alert".localized(),
                isPresented: $viewModel.showErrorMessage, actions: {
-            Button(NSLocalizedString("splash_view_reload_button_title", comment: "Reload"), action: {
+            Button("splash_view_reload_button_title".localized(), action: {
                 viewModel.loadData()
             })
         }, message: { Text(viewModel.errorMessage ?? "") })

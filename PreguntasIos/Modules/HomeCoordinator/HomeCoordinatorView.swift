@@ -20,7 +20,7 @@ struct HomeCoordinatorView: View {
                             coordinator.openPlayersSetupView()
                             questionCategory = category
                         }, label: {
-                            Text(NSLocalizedString("category_\(category.rawValue.lowercased())", comment: ""))
+                            Text("category_\(category.rawValue.lowercased())".localized())
                                 .font(Font.body)
                                 .foregroundColor(Color.primary)
                         })
@@ -30,7 +30,7 @@ struct HomeCoordinatorView: View {
                             coordinator.openGameCoordinator(category: category)
                             questionCategory = category
                         }, label: {
-                            Text(NSLocalizedString("category_\(category.rawValue.lowercased())", comment: ""))
+                            Text("category_\(category.rawValue.lowercased())".localized())
                                 .font(Font.body)
                                 .foregroundColor(Color.primary)
                         })
@@ -38,9 +38,9 @@ struct HomeCoordinatorView: View {
                 }
             }
             .toolbar {
-                Button(action: coordinator.openSettingsView, label: {
+                Button(action: coordinator.openSettingsCoordinator, label: {
                     Image(systemName: "gear")
-                }).sheet(item: $coordinator.settingsViewModel) { SettingsView(viewModel: $0) }
+                }).sheet(item: $coordinator.settingsCoordinator) { SettingsCoordinatorView(coordinator: $0) }
             }
             .navigation(item: $coordinator.gameCoordinator) { gameCoordinator in
                 GameCoordinatorView(coordinator: gameCoordinator)
@@ -52,7 +52,7 @@ struct HomeCoordinatorView: View {
             } content: { viewModel in
                 PlayersSetupView(viewModel: viewModel)
             }
-            .alert(NSLocalizedString("alert", comment: "Alert"),
+            .alert("alert".localized(),
                    isPresented: $coordinator.showErrorMessage, actions: {}, message: {
                 Text(coordinator.errorMessage ?? "")
             })

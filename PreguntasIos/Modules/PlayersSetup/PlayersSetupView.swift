@@ -18,11 +18,11 @@ struct PlayersSetupView: View {
 
     var body: some View {
         VStack {
-            Text(NSLocalizedString("players_setup_header", comment: ""))
+            Text("players_setup_header".localized())
                 .font(.largeTitle)
                 .padding()
 
-            Text(NSLocalizedString("players_setup_subheader", comment: ""))
+            Text("players_setup_subheader".localized())
                 .font(.body)
 
             List {
