@@ -8,23 +8,19 @@
 import Foundation
 
 struct APIErrorMapper {
-
     // MARK: - Properties
     let error: APIError
 
     // MARK: - Public API
-
-    // TODO: Fix these string literals (language)
     var message: String {
         switch error {
         case .unreachable:
-            return "You need to have a network connection."
-        case .unauthorized:
-            return "You need to be signed in."
+            return NSLocalizedString("api_error_mapper_unreachable", comment: "")
         case .unknown,
                 .failedRequest,
-                .invalidResponse:
-            return "Network connection failed. Please check your internet connection."
+                .invalidResponse,
+                .unauthorized:
+            return NSLocalizedString("api_error_mapper_failed_request", comment: "")
         }
     }
 }

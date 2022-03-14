@@ -8,38 +8,49 @@
 import Combine
 import Foundation
 
+protocol GameApiService {
+    func getQuestions() -> AnyPublisher<Questions, APIError>
+    func gameStarted(players: [Player], language: Language) -> AnyPublisher<String, APIError>
+    func suggestQuestion(question: String, language: Language, user: String) -> AnyPublisher<String, APIError>
+    func questionFeedback(feedbackType: FeedbackType,
+                          feedback: String,
+                          question: String,
+                          language: Language) -> AnyPublisher<String, APIError>
+}
+
 final class GameAPIClient: GameApiService {
     func getQuestions() -> AnyPublisher<Questions, APIError> {
         request(.getQuestions)
     }
 
-    //    func likeQuestion(question: Question) -> AnyPublisher<Void, APIError> {
-    //
-    //    }
-    //
-    //    func dislikeQuestion(question: Question,
-    //                         feedbackSatisfaction: FeedbackSatisfaction,
-    //                         feedback: String?) -> AnyPublisher<Void, APIError> {
-    //
-    //    }
-    //
-    //    func sendQuestionFeedback(question: Question,
-    //                              feedbackType: FeedbackType,
-    //                              feedback: String?) -> AnyPublisher<Void, APIError> {
-    //
-    //    }
-    //
-    //    func startGame(players: Int, category: QuestionCategory) -> AnyPublisher<Void, APIError> {
-    //
-    //    }
+    func gameStarted(players: [Player], language: Language) -> AnyPublisher<String, APIError> {
+        request(.gameStarted(players: players, language: language))
+    }
 
-    // MARK: - Helper Methods
+    func suggestQuestion(question: String, language: Language, user: String) -> AnyPublisher<String, APIError> {
+        request(.suggestQuestion(question: question, language: language, user: user))
+    }
+
+    func questionFeedback(feedbackType: FeedbackType,
+                          feedback: String,
+                          question: String,
+                          language: Language) -> AnyPublisher<String, APIError> {
+        request(.questionFeedback(feedbackType: feedbackType,
+                                  feedback: feedback,
+                                  question: question,
+                                  language: language))
+    }
+}
+
+extension GameAPIClient {
+    // MARK: - Request Methods
     private func request<T: Decodable>(_ endpoint: APIEndpoint) -> AnyPublisher<T, APIError> {
         do {
             let request = try endpoint.request()
 
             return URLSession.shared.dataTaskPublisher(for: request)
                 .tryMap { data, response -> T in
+
                     guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
                         throw APIError.failedRequest
                     }

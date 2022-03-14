@@ -9,12 +9,10 @@ import Combine
 import Foundation
 import SwiftUI
 
-class SplashViewModel: ObservableObject {
-    //    private let questionsUseCase = QuestionsUseCase()
+final class SplashViewModel: ObservableObject {
     private let apiClient: GameAPIClient
 
-    @Published private (set) var categories: [QuestionCategory]?
-    @Published private (set) var questions: [Question]?
+    @Published private (set) var questions: Questions?
     @Published private (set) var dataLoaded = false
     @Published private (set) var errorMessage: String?
     @Published var showErrorMessage = false
@@ -24,11 +22,11 @@ class SplashViewModel: ObservableObject {
     init(apiClient: GameAPIClient) {
         self.apiClient = apiClient
 
-        // loadDataMock()
-        loadData()
+        loadDataMock()
+        //        loadData()
 
-        self.$categories.combineLatest(self.$questions)
-            .filter({ !($0.0?.isEmpty ?? true) && !($0.1?.isEmpty ?? true) })
+        self.$questions
+            .filter({ !($0?.questions.isEmpty ?? true) && !($0?.categories.isEmpty ?? true) })
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished: ()
@@ -36,14 +34,16 @@ class SplashViewModel: ObservableObject {
                     print(error.localizedDescription)
                 }
             }, receiveValue: { [weak self] result in
-                if let categories = result.0, !categories.isEmpty,
-                   let questions = result.1, !questions.isEmpty {
+                if let categories = result?.categories, !categories.isEmpty,
+                   let questions = result?.questions, !questions.isEmpty {
                     self?.dataLoaded.toggle()
                 }
             }).store(in: &cancellables)
     }
 
+    // MARK: - Helpers
     func loadData() {
+
         self.apiClient.getQuestions()
             .sink(receiveCompletion: { [weak self] completion in
 
@@ -58,8 +58,7 @@ class SplashViewModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] result in
                 DispatchQueue.main.async {
-                    self?.questions = result.questions
-                    self?.categories = result.categories
+                    self?.questions = Questions(questions: result.questions, categories: result.categories)
                 }
             }).store(in: &cancellables)
     }
@@ -67,17 +66,23 @@ class SplashViewModel: ObservableObject {
     private func loadDataMock() {
         guard let url = Bundle.main.url(forResource: "preguntas", withExtension: "json"),
               let data = try? Data(contentsOf: url),
-              let preguntas = try? JSONDecoder().decode([Question].self, from: data) else {
-                  print("Unable to load or parse preguntas.json")
+              let response = try? JSONDecoder().decode(Questions.self, from: data) else {
+                  let errorMsj = "Unable to load or parse preguntas.json"
+                  print(errorMsj)
+                  self.showErrorMessage = true
+                  self.errorMessage = errorMsj
                   return
               }
 
-        DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 1) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+            var categories = response.categories
+            categories.append(contentsOf: [.mixed, .all, .liked])
 
-            DispatchQueue.main.async {
-                self?.questions = preguntas
-                self?.categories = [QuestionCategory.friends, QuestionCategory.life, QuestionCategory.dirty]
-            }
+            self?.questions = Questions(questions: response.questions, categories: categories)
         }
+    }
+
+    deinit {
+        print("SplashViewModel deinit 🗑")
     }
 }

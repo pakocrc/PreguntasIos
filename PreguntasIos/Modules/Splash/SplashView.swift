@@ -22,7 +22,7 @@ struct SplashView: View {
                 .font(.largeTitle)
                 .padding()
         }
-        .alert(NSLocalizedString("splash_view_alert_title", comment: "Alert"),
+        .alert(NSLocalizedString("alert", comment: "Alert"),
                isPresented: $viewModel.showErrorMessage, actions: {
             Button(NSLocalizedString("splash_view_reload_button_title", comment: "Reload"), action: {
                 viewModel.loadData()

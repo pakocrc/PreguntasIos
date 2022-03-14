@@ -8,16 +8,16 @@
 import Foundation
 
 enum APIEndpoint {
-
-    // MARK: - Cases
-//    case auth(email: String, password: String)
     case getQuestions
+    case gameStarted(players: [Player], language: Language)
+    case suggestQuestion(question: String, language: Language, user: String)
+    case questionFeedback(feedbackType: FeedbackType, feedback: String, question: String, language: Language)
 
-//    case episodes
-//    case video(id: String)
-//    case videoProgress(id: String)
-//    case updateVideoProgress(id: String, cursor: Int)
-//    case deleteVideoProgress(id: String)
+    //    case episodes
+    //    case video(id: String)
+    //    case videoProgress(id: String)
+    //    case updateVideoProgress(id: String, cursor: Int)
+    //    case deleteVideoProgress(id: String)
 
     // MARK: - Properties
     func request() throws -> URLRequest {
@@ -25,38 +25,33 @@ enum APIEndpoint {
 
         request.addHeaders(headers)
         request.httpMethod = httpMethod.rawValue
-
-//        if requiresAuthorization {
-//            if let accessToken = accessToken {
-//                request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-//            } else {
-//                throw APIError.unauthorized
-//            }
-//        }
-
         request.httpBody = httpBody
 
         return request
     }
 
     private var url: URL {
-        Environment.baseURL.appendingPathComponent(path)
+        EnvironmentConfig.baseURL.appendingPathComponent(path)
     }
 
     private var path: String {
         switch self {
         case .getQuestions:
-            return "/PreguntasFunc"
-//        case .auth:
-//            return "auth"
-//        case .episodes:
-//            return "episodes"
-//        case let .video(id: id):
-//            return "videos/\(id)"
-//        case let .videoProgress(id: id),
-//             let .updateVideoProgress(id: id, cursor: _),
-//             let .deleteVideoProgress(id: id):
-//            return "videos/\(id)/progress"
+            return "PreguntasFunc"
+        case .gameStarted:
+            return "game"
+        case .suggestQuestion:
+            return "question/suggest"
+        case .questionFeedback:
+            return "feedback/question"
+            //        case .episodes:
+            //            return "episodes"
+            //        case let .video(id: id):
+            //            return "videos/\(id)"
+            //        case let .videoProgress(id: id),
+            //             let .updateVideoProgress(id: id, cursor: _),
+            //             let .deleteVideoProgress(id: id):
+            //            return "videos/\(id)/progress"
         }
     }
 
@@ -64,57 +59,51 @@ enum APIEndpoint {
         switch self {
         case .getQuestions:
             return .get
-//        case .auth,
-//             .updateVideoProgress:
-//            return .post
-//        case .episodes,
-//             .video,
-//             .videoProgress:
-//            return .get
-//        case .deleteVideoProgress:
-//            return .delete
+        case .gameStarted:
+            return .put
+        case .suggestQuestion, .questionFeedback:
+            return .post
         }
     }
 
     private var httpBody: Data? {
-//        switch self {
-//        case let .updateVideoProgress(id: _, cursor: cursor):
-//            let body = UpdateVideoProgressBody(cursor: cursor)
-//            return try? JSONEncoder().encode(body)
-//        case .auth,
-//             .episodes,
-//             .video,
-//             .videoProgress,
-//             .deleteVideoProgress:
-            return nil
-//        }
-    }
+        switch self {
+        case .gameStarted(let players, let language):
+            let jsonString: [String: Any] = ["players": players.reduce("") { "\($0)\($1.name), " },
+                                             "count": players.count.description,
+                                             "lang": language.rawValue]
+            return try? JSONSerialization.data(withJSONObject: jsonString)
 
-//    private var requiresAuthorization: Bool {
-//        switch self {
-//        case .auth,
-//                .episodes:
-//            return false
-//        case .video,
-//             .videoProgress,
-//             .updateVideoProgress,
-//             .deleteVideoProgress:
-//            return true
-//        }
-//    }
+        case .suggestQuestion(let question, let language, let user):
+            let jsonString: [String: Any] = ["question": question,
+                                             "user": user,
+                                             "lang": language.rawValue]
+            return try? JSONSerialization.data(withJSONObject: jsonString)
+
+        case .questionFeedback(let feedbackType, let feedback, let question, let language):
+            let jsonString: [String: Any] = ["type": feedbackType.rawValue,
+                                             "feedback": feedback,
+                                             "question": question,
+                                             "lang": language.rawValue]
+            return try? JSONSerialization.data(withJSONObject: jsonString)
+
+        default:
+            //        case let .updateVideoProgress(id: _, cursor: cursor):
+            //            let body = UpdateVideoProgressBody(cursor: cursor)
+            //            return try? JSONEncoder().encode(body)
+            //        case .auth,
+            //             .episodes,
+            //             .video,
+            //             .videoProgress,
+            //             .deleteVideoProgress:
+            return nil
+        }
+    }
 
     private var headers: HTTPHeaders {
         let headers: HTTPHeaders = [
             "Content-Type": "application/json"
-//            "X-API-TOKEN": Environment.apiToken
         ]
-
-//        if case let .auth(email: email, password: password) = self {
-//            let authData = (email + ":" + password).data(using: .utf8)!
-//            let encodedAuthData = authData.base64EncodedString()
-//            headers["Authorization"] = "Basic \(encodedAuthData)"
-//        }
-//
         return headers
     }
 
@@ -126,5 +115,4 @@ extension URLRequest {
             addValue(value, forHTTPHeaderField: header)
         }
     }
-
 }

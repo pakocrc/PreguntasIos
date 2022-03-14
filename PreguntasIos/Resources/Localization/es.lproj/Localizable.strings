@@ -8,5 +8,81 @@
 */
 
 "app_name" = "Preguntas";
-"splash_view_alert_title" = "Alerta";
+"alert" = "Alerta";
+"continue" = "Continuar";
+"accept" = "Aceptar";
+"ok" = "OK";
+
+// MARK: - Splash
 "splash_view_reload_button_title" = "Recargar";
+
+// MARK: - Home
+"home_coordinator_no_liked_questions_error_message" = "No hay favoritas aún. Luego de agregar a favoritas (❤️), las preguntas apareceran aquí 🙂";
+
+// MARK: - Errors
+"api_error_mapper_unreachable" = "Sin conexión. Por favor verifica tu conexión a internet e intenta de nuevo.";
+"api_error_mapper_failed_request" = "Ocurrió un error. Por favor verifica tu conexión a internet e intenta de nuevo.";
+
+// MARK: - Categories
+"category_friends" = "Amigos";
+"category_life" = "Vida";
+"category_dirty" = "Atrevidas";
+"category_mixed" = "Combinadas";
+"category_liked" = "Favoritas";
+"category_all" = "Todas";
+
+// MARK: - Settings
+"settings_title" = "Configuración";
+
+"settings_profile" = "Perfil";
+"settings_profile_players" = "Jugadores";
+"settings_profile_language" = "Lenguaje";
+
+"settings_membership" = "Membresía";
+"settings_membership_premium" = "Prémium";
+"settings_membership_restore_purchase" = "Restaurar Compra";
+
+"settings_more" = "Otros";
+"settings_more_rate_app" = "Calificar app";
+"settings_more_feedback" = "Comentarios";
+"settings_more_terms_and_conditions" = "Terminos y Condicioones";
+"settings_more_privacy_policy" = "Política de Privacidad";
+
+// MARK: - Players Setup
+"players_setup_title" = "Jugadores";
+"players_setup_header" = "¿Quienes juegan?";
+"players_setup_done_button" = "Continuar";
+"players_setup_new_player_placeholder" = "Jugador %@";
+"players_setup_subheader" = "Agrega el nombre de los jugadores";
+
+// MARK: - Game View
+"game_view_responds_title" = "Responde";
+"game_view_next_button" = "Siguiente";
+"game_view_empty_question" = "Error al cargar los datos. Intenta con la siguiente.";
+
+// MARK: - All Questions
+"all_questions_view_title" = "Todas las Preguntas";
+"all_questions_view_empty_question" = "Error al cargar pregunta";
+
+// MARK: - Suggest Question
+"suggest_question_view_title" = "Sugerir Pregunta";
+"suggest_question_view_next_button" = "Enviar";
+"suggest_question_view_anonymous" = "Anónimo";
+"suggest_question_view_type_question_placeholder" = "Escribe la pregunta aquí...";
+"suggest_question_view_name_flag" = "Nombre + Bandera 🏳️";
+"suggest_question_view_name_flag_optional" = "(Opcional)";
+"suggest_question_view_type_name_flag_placeholder" = "Escribe nombre + bandera aquí...";
+"suggest_question_view_error" = "No fue posible enviar la sugerencia. Por favor intenta de nuevo.";
+"suggest_question_view_success" = "Sugerencia enviada exitosamente";
+
+// MARK: - Question Feedback
+"question_feedback_view_feedback_type_bad_translation" = "Mala traducción";
+"question_feedback_view_feedback_type_inappropiate_or_offensive" = "Inapropiada u ofensiva";
+"question_feedback_view_feedback_type_mood_killer" = "Mala vibra";
+"question_feedback_view_feedback_type_other" = "Otro";
+"question_feedback_view_title" = "Feedback";
+"question_feedback_view_header" = "El feedback nos ayuda a mejorar. Por favor indícanos por qué no te gustó esta pregunta";
+"question_feedback_view_next_button" = "Enviar";
+"question_feedback_view_text_field_placeholder" = "¿Algo más que quieras decirnos?";
+"question_feedback_view_error" = "No fue posible enviar el feedback. Por favor intenta de nuevo.";
+"question_feedback_view_success" = "Feedback enviado exitosamente";

@@ -8,5 +8,81 @@
 */
 
 "app_name" = "Preguntas";
-"splash_view_alert_title" = "Alert";
+"alert" = "Alert";
+"continue" = "Continue";
+"accept" = "Accept";
+"ok" = "OK";
+
+// MARK: - Splash
 "splash_view_reload_button_title" = "Reload";
+
+// MARK: - Home
+"home_coordinator_no_liked_questions_error_message" = "No favorite questions yet. After you save any question as favorite (❤️) it will appear here 🙂";
+
+// MARK: - Errors
+"api_error_mapper_unreachable" = "Network connection failed. Please check your internet connection.";
+"api_error_mapper_failed_request" = "Something went wrong. Please check your internet connection and try again.";
+
+// MARK: - Categories
+"category_friends" = "Friends";
+"category_life" = "Life";
+"category_dirty" = "Dirty";
+"category_mixed" = "Mixed";
+"category_liked" = "Favorites";
+"category_all" = "All";
+
+// MARK: - Settings
+"settings_title" = "Settings";
+
+"settings_profile" = "Profile";
+"settings_profile_players" = "Players";
+"settings_profile_language" = "Language";
+
+"settings_membership" = "Membership";
+"settings_membership_premium" = "Premium";
+"settings_membership_restore_purchase" = "Restore Purchase";
+
+"settings_more" = "More";
+"settings_more_rate_app" = "Rate App";
+"settings_more_feedback" = "Feedback";
+"settings_more_terms_and_conditions" = "Terms and Conditions";
+"settings_more_privacy_policy" = "Privacy Policy";
+
+// MARK: - Players Setup
+"players_setup_title" = "Players";
+"players_setup_header" = "Who is playing?";
+"players_setup_done_button" = "Done!";
+"players_setup_new_player_placeholder" = "Player %@";
+"players_setup_subheader" = "First things first, add the name of the players";
+
+// MARK: - Game View
+"game_view_responds_title" = "Responds";
+"game_view_next_button" = "Next";
+"game_view_empty_question" = "Error loading data. Please try with the next one.";
+
+// MARK: - All Questions
+"all_questions_view_title" = "All Questions";
+"all_questions_view_empty_question" = "Error while loading question";
+
+// MARK: - Suggest Question
+"suggest_question_view_title" = "Suggest Question";
+"suggest_question_view_next_button" = "Send";
+"suggest_question_view_anonymous" = "Anonymous";
+"suggest_question_view_type_question_placeholder" = "Type question here...";
+"suggest_question_view_name_flag" = "Name + Flag 🏳️";
+"suggest_question_view_name_flag_optional" = "(Optional)";
+"suggest_question_view_type_name_flag_placeholder" = "Type name + flag here...";
+"suggest_question_view_error" = "Unable to send suggested question. Please try again.";
+"suggest_question_view_success" = "Suggestion sent successfully!";
+
+// MARK: - Question Feedback
+"question_feedback_view_feedback_type_bad_translation" = "Bad translation";
+"question_feedback_view_feedback_type_inappropiate_or_offensive" = "Inappropiate or offensive";
+"question_feedback_view_feedback_type_mood_killer" = "Mood killer";
+"question_feedback_view_feedback_type_other" = "Other";
+"question_feedback_view_title" = "Feedback";
+"question_feedback_view_header" = "Feedback help us improve. Please tell us why you don't like this question";
+"question_feedback_view_next_button" = "Send";
+"question_feedback_view_text_field_placeholder" = "Anything else you want to tell us?";
+"question_feedback_view_error" = "Unable to send question feedback. Please try again.";
+"question_feedback_view_success" = "Feedback sent successfully!";

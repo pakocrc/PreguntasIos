@@ -6,5 +6,5 @@
 //
 
 enum QuestionCategory: String, Decodable {
-    case friends = "FRIENDS", life = "LIFE", dirty = "DIRTY"
+    case friends = "FRIENDS", life = "LIFE", dirty = "DIRTY", mixed = "MIXED", liked = "LIKED", all = "ALL"
 }
