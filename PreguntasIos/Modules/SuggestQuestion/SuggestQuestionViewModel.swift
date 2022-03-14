@@ -17,19 +17,12 @@ final class SuggestQuestionViewModel: ObservableObject, Identifiable {
     @Published var dismissView = false
 
     // MARK: Error
-    @Published private (set) var errorMessage: String?
+    @Published private (set) var alertMessage: String?
     @Published var showErrorMessage = false
+    @Published var showAlertMessage = false
 
     init(gameAPIService: GameApiService) {
         self.gameAPIService = gameAPIService
-    }
-
-    func setQuestion(question: String) {
-        print("Question: \(question)")
-    }
-
-    func setUser(user: String) {
-        print("User: \(user)")
     }
 
     func sendButtonPressed(question: String, user: String) {
@@ -44,15 +37,20 @@ final class SuggestQuestionViewModel: ObservableObject, Identifiable {
                 switch completion {
                 case .failure(let error):
                     print("🔴 Unable to send suggested question. Error: \(error)")
-                    self?.errorMessage = NSLocalizedString("suggest_question_view_error", comment: "")
+                    self?.alertMessage = NSLocalizedString("suggest_question_view_error", comment: "")
                     self?.showErrorMessage = true
                 default: break
                 }
             }, receiveValue: { [weak self] result in
                 print("🟠 Question suggested! \(result)")
-                self?.dismissView = true
+                self?.showAlertMessage = true
+                self?.alertMessage = NSLocalizedString("suggest_question_view_success", comment: "")
             })
             .store(in: &cancellables)
+    }
+
+    func dismissViewAction() {
+        dismissView = true
     }
 
     deinit {

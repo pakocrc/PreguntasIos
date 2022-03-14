@@ -16,6 +16,12 @@ struct SuggestQuestionView: View {
     @State var question = ""
     @State var user = ""
 
+    var textFieldLightColor = Color(
+        red: 239.0/255.0,
+        green: 243.0/255.0,
+        blue: 244.0/255.0,
+        opacity: 1.0)
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -29,24 +35,21 @@ struct SuggestQuestionView: View {
                     TextField(text: $question, prompt: Text(
                         NSLocalizedString("suggest_question_view_type_question_placeholder",
                                           comment: ""))) { }
-                    .multilineTextAlignment(.leading)
-                    .frame(height: 45, alignment: .topLeading)
-                    .padding(.all)
-                    .foregroundColor(
-                        colorScheme == .light ?
-                        Color.secondary :
-                        Color.primary
-                    )
-                    .background(
-                        colorScheme == .light ?
-                            Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0) :
-                            Color.secondary
-                    )
-                    .cornerRadius(5)
-                    .padding(.bottom, 30)
-                    .onChange(of: question) { newValue in
-                        viewModel.setQuestion(question: newValue)
-                    }
+                                          .multilineTextAlignment(.leading)
+                                          .frame(height: 45, alignment: .topLeading)
+                                          .padding(.all)
+                                          .foregroundColor(
+                                            colorScheme == .light ?
+                                            Color.secondary :
+                                                Color.primary
+                                          )
+                                          .background(
+                                            colorScheme == .light ?
+                                            textFieldLightColor :
+                                                Color.secondary
+                                          )
+                                          .cornerRadius(5)
+                                          .padding(.bottom, 30)
 
                     HStack {
                         Text(NSLocalizedString("suggest_question_view_name_flag", comment: ""))
@@ -61,23 +64,20 @@ struct SuggestQuestionView: View {
                               prompt: Text(
                                 NSLocalizedString("suggest_question_view_type_name_flag_placeholder",
                                                   comment: ""))) { }
-                    .multilineTextAlignment(.leading)
-                    .frame(height: 30, alignment: .topLeading)
-                    .padding(.all)
-                    .foregroundColor(
-                        colorScheme == .light ?
-                            Color.secondary :
-                            Color.primary
-                    )
-                    .background(
-                        colorScheme == .light ?
-                            Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0) :
-                            Color.secondary
-                    )
-                    .cornerRadius(5)
-                    .onChange(of: question) { newValue in
-                        viewModel.setUser(user: newValue)
-                    }
+                                                  .multilineTextAlignment(.leading)
+                                                  .frame(height: 30, alignment: .topLeading)
+                                                  .padding(.all)
+                                                  .foregroundColor(
+                                                    colorScheme == .light ?
+                                                    Color.secondary :
+                                                        Color.primary
+                                                  )
+                                                  .background(
+                                                    colorScheme == .light ?
+                                                    textFieldLightColor :
+                                                        Color.secondary
+                                                  )
+                                                  .cornerRadius(5)
 
                     Spacer()
 
@@ -88,9 +88,9 @@ struct SuggestQuestionView: View {
                             .font(Font.body)
                             .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
                     })
-                        .disabled(question.isEmpty)
+                        .disabled(question.isEmpty || viewModel.loading)
                         .foregroundColor(Color.primary)
-                        .background(question.isEmpty ? Color.gray : Color.orange)
+                        .background(question.isEmpty || viewModel.loading ? Color.gray : Color.orange)
                         .padding()
                         .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
                         .cornerRadius(10)
@@ -100,7 +100,15 @@ struct SuggestQuestionView: View {
             .alert(NSLocalizedString("alert", comment: "Alert"),
                    isPresented: $viewModel.showErrorMessage,
                    actions: { },
-                   message: { Text(viewModel.errorMessage ?? "") })
+                   message: { Text(viewModel.alertMessage ?? "") })
+            .alert(NSLocalizedString("alert", comment: "Alert"),
+                   isPresented: $viewModel.showAlertMessage,
+                   actions: {
+                Button(NSLocalizedString("ok", comment: ""), action: {
+                    viewModel.dismissViewAction()
+                })
+            },
+                   message: { Text(viewModel.alertMessage ?? "") })
             .navigationTitle(NSLocalizedString("suggest_question_view_title", comment: ""))
             .toolbar(content: {
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
@@ -119,10 +127,12 @@ struct SuggestQuestionView: View {
 struct SuggestQuestionView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SuggestQuestionView(viewModel: SuggestQuestionViewModel(gameAPIService: GameAPIClient()))
-
-            SuggestQuestionView(viewModel: SuggestQuestionViewModel(gameAPIService: GameAPIClient()))
-                    .preferredColorScheme(.dark)
+            SuggestQuestionView(viewModel:
+                                    SuggestQuestionViewModel(
+                                        gameAPIService: GameAPIClient()))
+            SuggestQuestionView(viewModel: SuggestQuestionViewModel(
+                gameAPIService: GameAPIClient()))
+                .preferredColorScheme(.dark)
         }
     }
 }

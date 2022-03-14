@@ -9,6 +9,9 @@
 
 "app_name" = "Preguntas";
 "alert" = "Alerta";
+"continue" = "Continuar";
+"accept" = "Aceptar";
+"ok" = "OK";
 
 // MARK: - Splash
 "splash_view_reload_button_title" = "Recargar";
@@ -70,3 +73,4 @@
 "suggest_question_view_name_flag_optional" = "(Opcional)";
 "suggest_question_view_type_name_flag_placeholder" = "Escribe nombre + bandera aquí...";
 "suggest_question_view_error" = "No fue posible enviar la sugerencia. Por favor intenta de nuevo.";
+"suggest_question_view_success" = "Sugerencia enviada exitosamente";

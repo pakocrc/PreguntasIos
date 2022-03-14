@@ -40,7 +40,7 @@ enum APIEndpoint {
         case .gameStarted:
             return "game"
         case .suggestQuestion:
-            return "suggestion"
+            return "question/suggest"
             //        case .episodes:
             //            return "episodes"
             //        case let .video(id: id):

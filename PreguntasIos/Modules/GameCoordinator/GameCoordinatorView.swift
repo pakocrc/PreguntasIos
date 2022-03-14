@@ -15,6 +15,10 @@ struct GameCoordinatorView: View {
             .sheet(item: $coordinator.suggestQuestionViewModel) { viewModel in
                 SuggestQuestionView(viewModel: viewModel)
             }
+            .alert(NSLocalizedString("alert", comment: "Alert"),
+                   isPresented: $coordinator.showErrorMessage,
+                   actions: { },
+                   message: { Text(coordinator.errorMessage ?? "") })
     }
 
     @ViewBuilder
