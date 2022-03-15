@@ -50,7 +50,9 @@ struct HomeCoordinatorView: View {
                     coordinator.playerSetupChanged(category: questionCategory)
                 }
             } content: { viewModel in
-                PlayersSetupView(viewModel: viewModel)
+                NavigationView {
+                    PlayersSetupView(viewModel: viewModel)
+                }
             }
             .alert("alert".localized(),
                    isPresented: $coordinator.showErrorMessage, actions: {}, message: {

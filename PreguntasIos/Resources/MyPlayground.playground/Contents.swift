@@ -44,10 +44,15 @@ let users = [user1, user2]
 //print(lang ?? "no-lang")
 
 //let jsonString = "players: Pako, Kilay, count: 2, lang: ES"
-let jsonString: [String: Any] = ["players": "Kilay, Mali",
-                                 "count": 2,
-                                 "lang": "ES"]
+//let jsonString: [String: Any] = ["players": "Kilay, Mali",
+//                                 "count": 2,
+//                                 "lang": "ES"]
+//
+//let aux = try JSONSerialization.data(withJSONObject: jsonString)
+//
+//print(aux)
 
-let aux = try JSONSerialization.data(withJSONObject: jsonString)
+let emptyArray = ["1", ""]
+//print(emptyArray.isEmpty || emptyArray.allSatisfy({ $0.isEmpty }) )
 
-print(aux)
+print(emptyArray.isEmpty || emptyArray.contains(where: { $0.isEmpty})  )

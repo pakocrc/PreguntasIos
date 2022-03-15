@@ -14,7 +14,9 @@ struct LanguageView: View {
         List {
             ForEach(Language.allCases, id: \.self) { language in
                 Button(action: {
-                    viewModel.setLanguage(language: language)
+                    if language != viewModel.preferedLanguage {
+                        viewModel.setLanguage(language: language)
+                    }
                 }, label: {
                     HStack {
                         Text(getLanguageText(language))
@@ -31,6 +33,7 @@ struct LanguageView: View {
                 })
             }
         }
+        .navigationTitle(Text("language_view_title".localized()))
         .alert(isPresented: $viewModel.showAlertMessage, content: {
             return Alert(title: Text("alert".localized()),
                          message: Text(viewModel.alertMessage ?? ""),
@@ -51,10 +54,6 @@ struct LanguageView: View {
             languageText = "language_view_en".localized()
         case .es:
             languageText = "language_view_es".localized()
-        case .de:
-            languageText = "language_view_de".localized()
-        case .fr:
-            languageText = "language_view_fr".localized()
         case .pt:
             languageText = "language_view_pt".localized()
         }

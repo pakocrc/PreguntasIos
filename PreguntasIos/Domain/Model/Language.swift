@@ -6,5 +6,5 @@
 //
 
 enum Language: String, CaseIterable {
-    case en, es, de, fr, pt
+    case en, es, pt // de, fr
 }

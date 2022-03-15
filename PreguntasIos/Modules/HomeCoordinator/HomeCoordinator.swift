@@ -26,7 +26,6 @@ final class HomeCoordinator: ObservableObject {
 
     init(questions: Questions) {
         self.questions = questions
-
         self.setupPlayers = UserSettings().players.isEmpty
     }
 

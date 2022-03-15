@@ -34,16 +34,16 @@ struct SettingsCoordinatorView: View {
 //                        }
 //                    }
 //                }
-//
-//                Section(header: Text("settings_more".localized())) {
-//                    ForEach(viewModel.settings.more, id: \.self) { moreSetting in
-//                        Button {
-//                            viewModel.moreSettingSelected(moreSetting)
-//                        } label: {
-//                            Text(moreSetting.rawValue.localized())
-//                        }
-//                    }
-//                }
+
+                Section(header: Text("settings_more".localized())) {
+                    ForEach(coordinator.settings.more, id: \.self) { moreSetting in
+                        Button {
+                            coordinator.moreSettingSelected(moreSetting)
+                        } label: {
+                            Text(moreSetting.rawValue.localized())
+                        }
+                    }
+                }
             }
             .navigation(item: $coordinator.playersSetupViewModel, destination: { viewModel in
                 PlayersSetupView(viewModel: viewModel)
@@ -51,6 +51,10 @@ struct SettingsCoordinatorView: View {
             .navigation(item: $coordinator.languageViewModel, destination: { viewModel in
                 LanguageView(viewModel: viewModel)
             })
+            .sheet(item: $coordinator.openedURL) { url in
+                SafariView(url: url)
+                    .edgesIgnoringSafeArea(.all)
+            }
             .navigationTitle("settings_title".localized())
             .toolbar(content: {
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {

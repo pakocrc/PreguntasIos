@@ -53,8 +53,10 @@
 "players_setup_title" = "Players";
 "players_setup_header" = "Who is playing?";
 "players_setup_done_button" = "Done!";
-"players_setup_new_player_placeholder" = "Player %@";
 "players_setup_subheader" = "First things first, add the name of the players";
+"players_setup_players" = "Players";
+"players_setup_player_placeholder" = "Player name";
+"players_setup_add_player" = "Add Player";
 
 // MARK: - Game View
 "game_view_responds_title" = "Responds";

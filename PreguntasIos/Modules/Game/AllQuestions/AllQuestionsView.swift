@@ -28,8 +28,6 @@ struct AllQuestionsView: View {
         switch viewModel.preferedLanguage {
         case .en: questionString = question?.en ?? emptyQuestionString
         case .es: questionString = question?.es ?? emptyQuestionString
-        case .de: questionString = question?.de ?? emptyQuestionString
-        case .fr: questionString = question?.fr ?? emptyQuestionString
         case .pt: questionString = question?.pt ?? emptyQuestionString
         }
 

@@ -13,43 +13,13 @@ struct PlayersSetupView: View {
 
     @ObservedObject var viewModel: PlayersSetupViewModel
 
-    @State var playerOne = ""
-    @State var playerTwo = ""
-
     var body: some View {
         VStack {
-            Text("players_setup_header".localized())
-                .font(.largeTitle)
-                .padding()
-
-            Text("players_setup_subheader".localized())
-                .font(.body)
-
-            List {
-                //                    ForEach(viewModel.players, id: \.name) { player in
-                TextField(text: $playerOne,
-                          prompt: Text("Add \(viewModel.players.first?.name ?? "") name".capitalized)) {
-                    Text(viewModel.players.first?.name ?? "")
-                }.onChange(of: playerOne) { newValue in
-                    if let player1 = viewModel.players.first {
-                        viewModel.setPlayerName(player: player1, newValue: newValue)
-                    }
-                }
-
-                TextField(text: $playerTwo, prompt:
-                            Text("Add \(viewModel.players.last?.name ?? "") name".capitalized)) {
-                    Text(viewModel.players.last?.name ?? "")
-                }.onChange(of: playerTwo) { newValue in
-                    if let player2 = viewModel.players.last {
-                        viewModel.setPlayerName(player: player2, newValue: newValue)
-                    }
-                }
-                //                    .onDelete { indexSet in
-                //                        if viewModel.players.count > 1 {
-                //                            playersCount -= 1
-                //                            viewModel.removePlayer(at: indexSet)
-                //                        }
-                //                    }
+            Form {
+                ListEditor(title: "players_setup_players".localized(),
+                           placeholderText: "players_setup_player_placeholder".localized(),
+                           addText: "players_setup_add_player".localized(),
+                           list: $viewModel.players)
             }
 
             Button(action: viewModel.continueButtonPressed, label: {
@@ -57,23 +27,96 @@ struct PlayersSetupView: View {
                     .font(Font.body)
                     .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
             })
-                .disabled(!viewModel.validPlayers())
-                .foregroundColor(!viewModel.validPlayers() ?
-                                 Color.white : Color.primary)
-                .background(!viewModel.validPlayers() ?
-                            Color.gray : Color.orange)
+                .disabled(validateForm())
+                .foregroundColor(validateForm() ? Color.white : Color.primary)
+                .background(validateForm() ? Color.gray : Color.orange)
                 .padding()
                 .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
                 .cornerRadius(10)
         }
+        .navigationTitle(Text("players_setup_header".localized()))
         .onChange(of: viewModel.dismissView) { _ in
             presentationMode.wrappedValue.dismiss()
+        }
+    }
+
+    private func validateForm() -> Bool {
+        return viewModel.players.isEmpty || viewModel.players.contains(where: { $0.isEmpty})
+    }
+
+    private struct ListEditor: View {
+        var title: String
+        var placeholderText: String
+        var addText: String
+        @Binding var list: [String]
+
+        func getBinding(forIndex index: Int) -> Binding<String> {
+            return Binding<String>(
+                get: { list[index] },
+                set: {
+                    if index < list.count {
+                        list[index] = $0
+                    } else {
+                        list[index - 1] = $0
+                    }
+                }
+            )
+        }
+
+        var body: some View {
+            Section(header: Text(title)) {
+                ForEach(0..<list.count, id: \.self) { index in
+                    ListItem(placeholder: placeholderText, text: getBinding(forIndex: index)) {
+                        self.list.remove(at: index)
+                    }
+                }
+                AddButton(text: addText) { self.list.append("") }
+            }
+        }
+    }
+
+    private struct ListItem: View {
+        var placeholder: String
+        @Binding var text: String
+        var removeAction: () -> Void
+
+        var body: some View {
+            HStack {
+                Button(action: removeAction) {
+                    Image(systemName: "minus.circle.fill")
+                        .foregroundColor(.red)
+                        .padding(.horizontal)
+                }
+                TextField(placeholder, text: $text)
+            }
+        }
+
+    }
+
+    private struct AddButton: View {
+        var text: String
+        var addAction: () -> Void
+
+        var body: some View {
+            Button(action: addAction) {
+                HStack {
+                    Image(systemName: "plus.circle.fill")
+                        .foregroundColor(.green)
+                        .padding(.horizontal)
+                    Text(text)
+                }
+            }
         }
     }
 }
 
 struct PlayersSetupView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayersSetupView(viewModel: PlayersSetupViewModel())
+        Group {
+            PlayersSetupView(viewModel: PlayersSetupViewModel())
+
+            PlayersSetupView(viewModel: PlayersSetupViewModel())
+                .preferredColorScheme(.dark)
+        }
     }
 }
