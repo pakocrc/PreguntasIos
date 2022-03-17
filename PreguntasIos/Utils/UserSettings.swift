@@ -33,7 +33,6 @@ struct UserSettings {
             switch preferedLanguageFromUserDefaults {
             case "en": return .en
             case "es": return .es
-            case "pt": return .pt
             default: return .es
             }
         }
@@ -44,7 +43,6 @@ struct UserSettings {
             switch newValue {
             case .en: newPreferedLanguage = "en"
             case .es: newPreferedLanguage = "es"
-            case .pt: newPreferedLanguage = "pt"
             }
 
             userDefaults.setValue(newPreferedLanguage, forKey: "preferedLanguage")

@@ -68,7 +68,6 @@ struct GameView: View {
         switch viewModel.preferedLanguage {
         case .en: questionString = randomQuestion?.en ?? emptyQuestionString
         case .es: questionString = randomQuestion?.es ?? emptyQuestionString
-        case .pt: questionString = randomQuestion?.pt ?? emptyQuestionString
         }
 
         return questionString

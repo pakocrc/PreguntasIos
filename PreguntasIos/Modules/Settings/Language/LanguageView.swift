@@ -54,8 +54,6 @@ struct LanguageView: View {
             languageText = "language_view_en".localized()
         case .es:
             languageText = "language_view_es".localized()
-        case .pt:
-            languageText = "language_view_pt".localized()
         }
 
         return languageText

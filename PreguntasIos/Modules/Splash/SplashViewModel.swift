@@ -22,8 +22,8 @@ final class SplashViewModel: ObservableObject {
     init(apiClient: GameAPIClient) {
         self.apiClient = apiClient
 
-        loadDataMock()
-        //        loadData()
+//        loadDataMock()
+        loadData()
 
         self.$questions
             .filter({ !($0?.questions.isEmpty ?? true) && !($0?.categories.isEmpty ?? true) })
@@ -58,7 +58,10 @@ final class SplashViewModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] result in
                 DispatchQueue.main.async {
-                    self?.questions = Questions(questions: result.questions, categories: result.categories)
+                    var categories = result.categories
+                    categories.append(contentsOf: [.mixed, .all, .liked])
+
+                    self?.questions = Questions(questions: result.questions, categories: categories)
                 }
             }).store(in: &cancellables)
     }

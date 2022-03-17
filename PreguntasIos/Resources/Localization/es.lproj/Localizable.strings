@@ -18,7 +18,7 @@
 "splash_view_reload_button_title" = "Recargar";
 
 // MARK: - Home
-"home_coordinator_no_liked_questions_error_message" = "No hay favoritas aún. Luego de agregar a favoritas (❤️), las preguntas apareceran aquí 🙂";
+"home_coordinator_no_liked_questions_error_message" = "No hay favoritas aún. Luego de agregar a favoritas (❤️), las preguntas aparecerán aquí 🙂";
 
 // MARK: - Errors
 "api_error_mapper_unreachable" = "Sin conexión. Por favor verifica tu conexión a internet e intenta de nuevo.";
@@ -46,7 +46,7 @@
 "settings_more" = "Otros";
 "settings_more_rate_app" = "Calificar app";
 "settings_more_feedback" = "Feedback";
-"settings_more_terms_and_conditions" = "Terminos y Condicioones";
+"settings_more_terms_and_conditions" = "Términos y Condiciones";
 "settings_more_privacy_policy" = "Política de Privacidad";
 
 // MARK: - Players Setup
@@ -91,7 +91,7 @@
 "question_feedback_view_success" = "Feedback enviado exitosamente";
 
 // MARK: - Language View
-"language_view_title" = "Languaje";
+"language_view_title" = "Lenguaje";
 "language_view_en" = "Inglés 🇺🇸";
 "language_view_es" = "Español 🇨🇷";
 "language_view_fr" = "Francés 🇫🇷";
