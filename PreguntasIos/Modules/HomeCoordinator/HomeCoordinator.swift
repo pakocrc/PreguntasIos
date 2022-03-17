@@ -9,10 +9,10 @@ import Foundation
 
 final class HomeCoordinator: ObservableObject {
     // MARK: - View Models
-    @Published var settingsViewModel: SettingsViewModel?
     @Published var playersSetupViewModel: PlayersSetupViewModel?
 
     @Published var gameCoordinator: GameCoordinator?
+    @Published var settingsCoordinator: SettingsCoordinator?
 
     // MARK: Error
     @Published private (set) var errorMessage: String?
@@ -26,14 +26,12 @@ final class HomeCoordinator: ObservableObject {
 
     init(questions: Questions) {
         self.questions = questions
-
-//        UserDefaults.standard.removeObject(forKey: "users")
         self.setupPlayers = UserSettings().players.isEmpty
     }
 
     // MARK: - ⚙️ Helpers
-    func openSettingsView() {
-        self.settingsViewModel = SettingsViewModel()
+    func openSettingsCoordinator() {
+        self.settingsCoordinator = SettingsCoordinator()
     }
 
     func openPlayersSetupView() {

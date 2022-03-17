@@ -18,19 +18,16 @@ struct AllQuestionsView: View {
                     .foregroundColor(Color.primary)
             }
         }
-        .navigationTitle(NSLocalizedString("all_questions_view_title", comment: ""))
+        .navigationTitle("all_questions_view_title".localized())
     }
 
     func getQuestionString(_ question: Question?) -> String {
         var questionString = ""
-        let emptyQuestionString = NSLocalizedString("all_questions_view_empty_question", comment: "")
+        let emptyQuestionString = "all_questions_view_empty_question".localized()
 
         switch viewModel.preferedLanguage {
         case .en: questionString = question?.en ?? emptyQuestionString
         case .es: questionString = question?.es ?? emptyQuestionString
-        case .de: questionString = question?.de ?? emptyQuestionString
-        case .fr: questionString = question?.fr ?? emptyQuestionString
-        case .pt: questionString = question?.pt ?? emptyQuestionString
         }
 
         return questionString

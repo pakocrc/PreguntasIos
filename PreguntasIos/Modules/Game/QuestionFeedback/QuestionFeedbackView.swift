@@ -42,7 +42,7 @@ struct QuestionFeedbackView: View {
                     .padding()
 
                 VStack {
-                    Text(NSLocalizedString("question_feedback_view_header", comment: ""))
+                    Text("question_feedback_view_header".localized())
                         .foregroundColor(Color.secondary)
                         .font(.body)
 
@@ -69,8 +69,7 @@ struct QuestionFeedbackView: View {
 
 //                    if feedbackType == .other {
                     TextField(text: $feedback, prompt: Text(
-                        NSLocalizedString("question_feedback_view_text_field_placeholder",
-                                          comment: ""))) { }
+                        "question_feedback_view_text_field_placeholder".localized())) { }
                                           .multilineTextAlignment(.leading)
                                           .frame(height: 45, alignment: .topLeading)
                                           .padding(.all)
@@ -85,7 +84,7 @@ struct QuestionFeedbackView: View {
                     Button(action: {
                         viewModel.sendButtonPressed(feedbackType: feedbackType, feedback: feedback)
                     }, label: {
-                        Text(NSLocalizedString("question_feedback_view_next_button", comment: ""))
+                        Text("question_feedback_view_next_button".localized())
                             .font(Font.body)
                             .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
                     })
@@ -98,15 +97,15 @@ struct QuestionFeedbackView: View {
                 }
                 .padding()
             }
-            .navigationTitle(NSLocalizedString("question_feedback_view_title", comment: ""))
-            .alert(NSLocalizedString("alert", comment: "Alert"),
+            .navigationTitle("question_feedback_view_title".localized())
+            .alert("alert".localized(),
                    isPresented: $viewModel.showErrorMessage,
                    actions: { },
                    message: { Text(viewModel.alertMessage ?? "") })
-            .alert(NSLocalizedString("alert", comment: "Alert"),
+            .alert("alert".localized(),
                    isPresented: $viewModel.showAlertMessage,
                    actions: {
-                Button(NSLocalizedString("ok", comment: ""), action: {
+                Button("ok".localized(), action: {
                     viewModel.dismissViewAction()
                 })
             }, message: { Text(viewModel.alertMessage ?? "") })
@@ -128,14 +127,14 @@ struct QuestionFeedbackView: View {
 
         switch feedbackType {
         case .badTranslation:
-            feedbackTypeString = NSLocalizedString("question_feedback_view_feedback_type_bad_translation", comment: "")
+            feedbackTypeString = "question_feedback_view_feedback_type_bad_translation".localized()
         case .inappropiateOrOffensive:
             feedbackTypeString =
-            NSLocalizedString("question_feedback_view_feedback_type_inappropiate_or_offensive", comment: "")
+            "question_feedback_view_feedback_type_inappropiate_or_offensive".localized()
         case .moodKiller:
-            feedbackTypeString = NSLocalizedString("question_feedback_view_feedback_type_mood_killer", comment: "")
+            feedbackTypeString = "question_feedback_view_feedback_type_mood_killer".localized()
         case .other:
-            feedbackTypeString = NSLocalizedString("question_feedback_view_feedback_type_other", comment: "")
+            feedbackTypeString = "question_feedback_view_feedback_type_other".localized()
         }
 
         return feedbackTypeString

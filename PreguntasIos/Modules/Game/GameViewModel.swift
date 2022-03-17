@@ -13,8 +13,8 @@ final class GameViewModel: ObservableObject {
 
     @Published var category: QuestionCategory
     @Published var questions: [Question]
-//    @Published var players: [Player] = UserSettings().players
-    @Published var players: [Player] = [Player(name: "Pako"), Player(name: "Kilay")]
+    @Published var players: [Player] = UserSettings().players
+//    @Published var players: [Player] = [Player(name: "Pako"), Player(name: "Kilay")]
 
     @Published var preferedLanguage = UserSettings().preferedLanguage
     @Published var currentQuestion: Question?

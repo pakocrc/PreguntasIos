@@ -12,12 +12,13 @@
 "continue" = "Continuar";
 "accept" = "Aceptar";
 "ok" = "OK";
+"cancel" = "Cancelar";
 
 // MARK: - Splash
 "splash_view_reload_button_title" = "Recargar";
 
 // MARK: - Home
-"home_coordinator_no_liked_questions_error_message" = "No hay favoritas aún. Luego de agregar a favoritas (❤️), las preguntas apareceran aquí 🙂";
+"home_coordinator_no_liked_questions_error_message" = "No hay favoritas aún. Luego de agregar a favoritas (❤️), las preguntas aparecerán aquí 🙂";
 
 // MARK: - Errors
 "api_error_mapper_unreachable" = "Sin conexión. Por favor verifica tu conexión a internet e intenta de nuevo.";
@@ -44,16 +45,18 @@
 
 "settings_more" = "Otros";
 "settings_more_rate_app" = "Calificar app";
-"settings_more_feedback" = "Comentarios";
-"settings_more_terms_and_conditions" = "Terminos y Condicioones";
+"settings_more_feedback" = "Feedback";
+"settings_more_terms_and_conditions" = "Términos y Condiciones";
 "settings_more_privacy_policy" = "Política de Privacidad";
 
 // MARK: - Players Setup
 "players_setup_title" = "Jugadores";
 "players_setup_header" = "¿Quienes juegan?";
 "players_setup_done_button" = "Continuar";
-"players_setup_new_player_placeholder" = "Jugador %@";
 "players_setup_subheader" = "Agrega el nombre de los jugadores";
+"players_setup_players" = "Jugadores";
+"players_setup_player_placeholder" = "Jugador";
+"players_setup_add_player" = "Agregar Jugador";
 
 // MARK: - Game View
 "game_view_responds_title" = "Responde";
@@ -86,3 +89,12 @@
 "question_feedback_view_text_field_placeholder" = "¿Algo más que quieras decirnos?";
 "question_feedback_view_error" = "No fue posible enviar el feedback. Por favor intenta de nuevo.";
 "question_feedback_view_success" = "Feedback enviado exitosamente";
+
+// MARK: - Language View
+"language_view_title" = "Lenguaje";
+"language_view_en" = "Inglés 🇺🇸";
+"language_view_es" = "Español 🇨🇷";
+"language_view_fr" = "Francés 🇫🇷";
+"language_view_pt" = "Portugués 🇧🇷";
+"language_view_de" = "Alemán 🇩🇪";
+"language_view_confirm_language_change" = "¿Seguro que deseas cambiar el lenguaje? El app se reiniciará luego del cambio";

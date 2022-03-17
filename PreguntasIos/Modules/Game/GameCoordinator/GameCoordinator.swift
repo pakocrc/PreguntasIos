@@ -41,7 +41,7 @@ final class GameCoordinator: ObservableObject {
 
         case .liked:
             if UserSettings().likedQuestions.isEmpty {
-                self.errorMessage = NSLocalizedString("home_coordinator_no_liked_questions_error_message", comment: "")
+                self.errorMessage = "home_coordinator_no_liked_questions_error_message".localized()
                 self.showErrorMessage = true
             } else {
                 self.gameViewModel = GameViewModel(category: category,

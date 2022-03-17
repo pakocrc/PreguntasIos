@@ -48,14 +48,14 @@ final class QuestionFeedbackViewModel: ObservableObject, Identifiable {
                 switch completion {
                 case .failure(let error):
                     print("🔴 Unable to send question feedback. Error: \(error)")
-                    self?.alertMessage = NSLocalizedString("question_feedback_view_error", comment: "")
+                    self?.alertMessage = "question_feedback_view_error".localized()
                     self?.showErrorMessage = true
                 default: break
                 }
             }, receiveValue: { [weak self] result in
                 print("🟠 Question feedback sent! \(result)")
                 self?.showAlertMessage = true
-                self?.alertMessage = NSLocalizedString("question_feedback_view_success", comment: "")
+                self?.alertMessage = "question_feedback_view_success".localized()
             })
             .store(in: &cancellables)
     }

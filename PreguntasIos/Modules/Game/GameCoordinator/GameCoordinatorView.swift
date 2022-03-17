@@ -18,7 +18,7 @@ struct GameCoordinatorView: View {
             .sheet(item: $coordinator.questionFeedbackViewModel) { viewModel in
                 QuestionFeedbackView(viewModel: viewModel)
             }
-            .alert(NSLocalizedString("alert", comment: "Alert"),
+            .alert("alert".localized(),
                    isPresented: $coordinator.showErrorMessage,
                    actions: { },
                    message: { Text(coordinator.errorMessage ?? "") })
@@ -40,9 +40,17 @@ struct GameCoordinatorView: View {
 
 struct GameCoordinatorView_Previews: PreviewProvider {
     static var previews: some View {
-        GameCoordinatorView(coordinator: GameCoordinator(
-            questions: Questions(questions: [], categories: []),
-            category: .friends,
-            gameAPIService: GameAPIClient()))
+        Group {
+            GameCoordinatorView(coordinator: GameCoordinator(
+                questions: Questions(questions: [], categories: []),
+                category: .friends,
+                gameAPIService: GameAPIClient()))
+
+            GameCoordinatorView(coordinator: GameCoordinator(
+                questions: Questions(questions: [], categories: []),
+                category: .friends,
+                gameAPIService: GameAPIClient()))
+                .preferredColorScheme(.dark)
+        }
     }
 }

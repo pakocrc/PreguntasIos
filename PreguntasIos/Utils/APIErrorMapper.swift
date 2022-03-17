@@ -15,12 +15,12 @@ struct APIErrorMapper {
     var message: String {
         switch error {
         case .unreachable:
-            return NSLocalizedString("api_error_mapper_unreachable", comment: "")
+            return "api_error_mapper_unreachable".localized()
         case .unknown,
                 .failedRequest,
                 .invalidResponse,
                 .unauthorized:
-            return NSLocalizedString("api_error_mapper_failed_request", comment: "")
+            return "api_error_mapper_failed_request".localized()
         }
     }
 }

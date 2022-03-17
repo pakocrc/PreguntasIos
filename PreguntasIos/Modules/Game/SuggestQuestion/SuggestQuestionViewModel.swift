@@ -37,14 +37,14 @@ final class SuggestQuestionViewModel: ObservableObject, Identifiable {
                 switch completion {
                 case .failure(let error):
                     print("🔴 Unable to send suggested question. Error: \(error)")
-                    self?.alertMessage = NSLocalizedString("suggest_question_view_error", comment: "")
+                    self?.alertMessage = "suggest_question_view_error".localized()
                     self?.showErrorMessage = true
                 default: break
                 }
             }, receiveValue: { [weak self] result in
                 print("🟠 Question suggested! \(result)")
                 self?.showAlertMessage = true
-                self?.alertMessage = NSLocalizedString("suggest_question_view_success", comment: "")
+                self?.alertMessage = "suggest_question_view_success".localized()
             })
             .store(in: &cancellables)
     }
