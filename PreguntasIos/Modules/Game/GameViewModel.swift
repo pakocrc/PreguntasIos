@@ -13,8 +13,9 @@ final class GameViewModel: ObservableObject {
 
     @Published var category: QuestionCategory
     @Published var questions: [Question]
-    @Published var players: [Player] = UserSettings().players
-//    @Published var players: [Player] = [Player(name: "Pako"), Player(name: "Kilay")]
+    // TODO: Uncomment this before commit
+//    @Published var players: [Player] = UserSettings().players
+    @Published var players: [Player] = [Player(name: "Pako"), Player(name: "Kilay")]
 
     @Published var preferedLanguage = UserSettings().preferedLanguage
     @Published var currentQuestion: Question?
@@ -94,17 +95,17 @@ final class GameViewModel: ObservableObject {
     }
 
     private func gameStarted() {
-        self.apiService.gameStarted(players: UserSettings().players, language: UserSettings().preferedLanguage)
-            .sink(receiveCompletion: { completion in
-
-                switch completion {
-                case .failure(let error):
-                    print("🔴 Unable to start game. Error: \(error)")
-                default: break
-                }
-            }, receiveValue: { result in
-                print("🟠 Game started. \(result)")
-            }).store(in: &cancellables)
+//        self.apiService.gameStarted(players: UserSettings().players, language: UserSettings().preferedLanguage)
+//            .sink(receiveCompletion: { completion in
+//
+//                switch completion {
+//                case .failure(let error):
+//                    print("🔴 Unable to start game. Error: \(error)")
+//                default: break
+//                }
+//            }, receiveValue: { result in
+//                print("🟠 Game started. \(result)")
+//            }).store(in: &cancellables)
     }
 
     deinit {

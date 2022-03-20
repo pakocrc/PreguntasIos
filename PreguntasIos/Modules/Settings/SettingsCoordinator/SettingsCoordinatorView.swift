@@ -20,6 +20,7 @@ struct SettingsCoordinatorView: View {
                             coordinator.profileSettingSelected(profileSetting)
                         } label: {
                             Text(profileSetting.rawValue.localized())
+                                .foregroundColor(Color.primary)
                         }
 
                     }
@@ -41,6 +42,7 @@ struct SettingsCoordinatorView: View {
                             coordinator.moreSettingSelected(moreSetting)
                         } label: {
                             Text(moreSetting.rawValue.localized())
+                                .foregroundColor(Color.primary)
                         }
                     }
                 }
@@ -51,6 +53,9 @@ struct SettingsCoordinatorView: View {
             .navigation(item: $coordinator.languageViewModel, destination: { viewModel in
                 LanguageView(viewModel: viewModel)
             })
+            .navigation(item: $coordinator.appFeedbackViewModel, destination: { viewModel in
+                AppFeedbackView(viewModel: viewModel)
+            })
             .sheet(item: $coordinator.openedURL) { url in
                 SafariView(url: url)
                     .edgesIgnoringSafeArea(.all)
@@ -60,7 +65,10 @@ struct SettingsCoordinatorView: View {
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
-                    }, label: { Image(systemName: "xmark") })
+                    }, label: {
+                        Image(systemName: "xmark")
+                            .foregroundColor(Color.primary)
+                    })
                 }
             })
         }
@@ -69,6 +77,10 @@ struct SettingsCoordinatorView: View {
 
 struct SettingsCoordinatorView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsCoordinatorView(coordinator: SettingsCoordinator())
+        Group {
+            SettingsCoordinatorView(coordinator: SettingsCoordinator(gameAPIService: GameApiClient()))
+            SettingsCoordinatorView(coordinator: SettingsCoordinator(gameAPIService: GameApiClient()))
+                .preferredColorScheme(.dark)
+        }
     }
 }

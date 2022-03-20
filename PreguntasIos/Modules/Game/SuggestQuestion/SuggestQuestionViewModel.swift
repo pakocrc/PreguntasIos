@@ -25,11 +25,11 @@ final class SuggestQuestionViewModel: ObservableObject, Identifiable {
         self.gameAPIService = gameAPIService
     }
 
-    func sendButtonPressed(question: String, user: String) {
+    func sendButtonPressed(question: String, user: String?, flag: String?) {
         loading = true
         gameAPIService.suggestQuestion(question: question,
                                        language: UserSettings().preferedLanguage,
-                                       user: !user.isEmpty ? user : "Anonymous")
+                                       user: "\(user ?? "Anonymous") - \(flag ?? "🏴‍☠️")")
             .sink(receiveCompletion: { [weak self] completion in
 
                 self?.loading = false

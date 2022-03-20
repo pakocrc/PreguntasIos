@@ -12,12 +12,7 @@ enum APIEndpoint {
     case gameStarted(players: [Player], language: Language)
     case suggestQuestion(question: String, language: Language, user: String)
     case questionFeedback(feedbackType: FeedbackType, feedback: String, question: String, language: Language)
-
-    //    case episodes
-    //    case video(id: String)
-    //    case videoProgress(id: String)
-    //    case updateVideoProgress(id: String, cursor: Int)
-    //    case deleteVideoProgress(id: String)
+    case appFeedback(feedback: String, appExperienceType: AppExperienceType, language: Language)
 
     // MARK: - Properties
     func request() throws -> URLRequest {
@@ -44,14 +39,8 @@ enum APIEndpoint {
             return "question/suggest"
         case .questionFeedback:
             return "feedback/question"
-            //        case .episodes:
-            //            return "episodes"
-            //        case let .video(id: id):
-            //            return "videos/\(id)"
-            //        case let .videoProgress(id: id),
-            //             let .updateVideoProgress(id: id, cursor: _),
-            //             let .deleteVideoProgress(id: id):
-            //            return "videos/\(id)/progress"
+        case .appFeedback:
+            return "feedback/app"
         }
     }
 
@@ -61,7 +50,7 @@ enum APIEndpoint {
             return .get
         case .gameStarted:
             return .put
-        case .suggestQuestion, .questionFeedback:
+        case .suggestQuestion, .questionFeedback, .appFeedback:
             return .post
         }
     }
@@ -69,33 +58,37 @@ enum APIEndpoint {
     private var httpBody: Data? {
         switch self {
         case .gameStarted(let players, let language):
-            let jsonString: [String: Any] = ["players": players.reduce("") { "\($0)\($1.name), " },
-                                             "count": players.count.description,
-                                             "lang": language.rawValue]
+            let jsonString: [String: Any] = [
+                "players": players.reduce("") { "\($0)\($1.name), " },
+                "count": players.count.description,
+                "lang": language.rawValue
+            ]
             return try? JSONSerialization.data(withJSONObject: jsonString)
 
         case .suggestQuestion(let question, let language, let user):
-            let jsonString: [String: Any] = ["question": question,
-                                             "user": user,
-                                             "lang": language.rawValue]
+            let jsonString: [String: Any] = [
+                "question": question,
+                "user": user,
+                "lang": language.rawValue
+            ]
             return try? JSONSerialization.data(withJSONObject: jsonString)
 
         case .questionFeedback(let feedbackType, let feedback, let question, let language):
-            let jsonString: [String: Any] = ["type": feedbackType.rawValue,
-                                             "feedback": feedback,
-                                             "question": question,
-                                             "lang": language.rawValue]
+            let jsonString: [String: Any] = [
+                "type": feedbackType.rawValue,
+                "feedback": feedback,
+                "question": question,
+                "lang": language.rawValue
+            ]
             return try? JSONSerialization.data(withJSONObject: jsonString)
-
+        case .appFeedback(let feedback, let appExperienceType, let language):
+            let jsonString: [String: Any] = [
+                "feedback": feedback,
+                "experience": appExperienceType.rawValue,
+                "lang": language.rawValue
+            ]
+            return try? JSONSerialization.data(withJSONObject: jsonString)
         default:
-            //        case let .updateVideoProgress(id: _, cursor: cursor):
-            //            let body = UpdateVideoProgressBody(cursor: cursor)
-            //            return try? JSONEncoder().encode(body)
-            //        case .auth,
-            //             .episodes,
-            //             .video,
-            //             .videoProgress,
-            //             .deleteVideoProgress:
             return nil
         }
     }

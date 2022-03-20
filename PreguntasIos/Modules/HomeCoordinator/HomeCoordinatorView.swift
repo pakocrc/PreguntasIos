@@ -49,6 +49,7 @@ struct HomeCoordinatorView: View {
             .toolbar {
                 Button(action: coordinator.openSettingsCoordinator, label: {
                     Image(systemName: "gear")
+                        .foregroundColor(.primary)
                 }).sheet(item: $coordinator.settingsCoordinator) { SettingsCoordinatorView(coordinator: $0) }
             }
             .navigation(item: $coordinator.gameCoordinator) { gameCoordinator in
@@ -86,7 +87,7 @@ struct CustomRowView: View {
         .frame(maxWidth: .infinity, alignment: .topLeading)
         .padding(.leading, 10)
         .padding(.vertical, 40)
-        .background(Color("SecondaryColor"))
+        .background(Color.secondary)
         .cornerRadius(12)
         .shadow(color: colorScheme == .light ? Color.primary : .clear,
                 radius: colorScheme == .light ? 5.0 : 0.0,

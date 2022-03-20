@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 final class SplashViewModel: ObservableObject {
-    private let apiClient: GameAPIClient
+    private let apiClient: GameApiClient
 
     @Published private (set) var questions: Questions?
     @Published private (set) var dataLoaded = false
@@ -19,11 +19,10 @@ final class SplashViewModel: ObservableObject {
 
     private var cancellables = Set<AnyCancellable>()
 
-    init(apiClient: GameAPIClient) {
+    init(apiClient: GameApiClient) {
         self.apiClient = apiClient
 
-//        loadDataMock()
-        loadData()
+        self.loadData()
 
         self.$questions
             .filter({ !($0?.questions.isEmpty ?? true) && !($0?.categories.isEmpty ?? true) })
@@ -43,8 +42,13 @@ final class SplashViewModel: ObservableObject {
 
     // MARK: - Helpers
     func loadData() {
+        loadMockData()
+//        loadInitialData()
+    }
 
-        self.apiClient.getQuestions()
+    private func loadInitialData() {
+        print("🟠 Loading server data...")
+        apiClient.getQuestions()
             .sink(receiveCompletion: { [weak self] completion in
 
                 switch completion {
@@ -66,7 +70,8 @@ final class SplashViewModel: ObservableObject {
             }).store(in: &cancellables)
     }
 
-    private func loadDataMock() {
+    private func loadMockData() {
+        print("🟠 Loading mock data...")
         guard let url = Bundle.main.url(forResource: "preguntas", withExtension: "json"),
               let data = try? Data(contentsOf: url),
               let response = try? JSONDecoder().decode(Questions.self, from: data) else {

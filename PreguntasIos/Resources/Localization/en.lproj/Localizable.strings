@@ -71,10 +71,9 @@
 "suggest_question_view_title" = "Suggest Question";
 "suggest_question_view_next_button" = "Send";
 "suggest_question_view_anonymous" = "Anonymous";
-"suggest_question_view_type_question_placeholder" = "Type question here...";
-"suggest_question_view_name_flag" = "Name + Flag 🏳️";
-"suggest_question_view_name_flag_optional" = "(Optional)";
-"suggest_question_view_type_name_flag_placeholder" = "Type name + flag here...";
+"suggest_question_view_type_question" = "Question";
+"suggest_question_view_name" = "Name";
+"suggest_question_view_flag_optional" = "Flag (Optional)";
 "suggest_question_view_error" = "Unable to send suggested question. Please try again.";
 "suggest_question_view_success" = "Suggestion sent successfully!";
 
@@ -84,11 +83,22 @@
 "question_feedback_view_feedback_type_mood_killer" = "Mood killer";
 "question_feedback_view_feedback_type_other" = "Other";
 "question_feedback_view_title" = "Feedback";
-"question_feedback_view_header" = "Feedback help us improve. Please tell us why you don't like this question";
+"question_feedback_view_header" = "Feedback help us improve. Please tell us what do you think";
 "question_feedback_view_next_button" = "Send";
-"question_feedback_view_text_field_placeholder" = "Anything else you want to tell us?";
+"question_feedback_view_text_field" = "Anything else you want to tell us?";
 "question_feedback_view_error" = "Unable to send question feedback. Please try again.";
 "question_feedback_view_success" = "Feedback sent successfully!";
+
+// MARK: - Game View
+"game_view_by" = "By: ";
+
+// MARK: - App Feedback
+"app_feedback_view_text_field" = "Feedback help us improve. Please tell us what do you think.";
+"app_feedback_view_next_button" = "Send";
+"app_feedback_view_title" = "App Feedback";
+"app_feedback_view_error" = "Unable to send app feedback. Please try again.";
+"app_feedback_view_success" = "Feedback sent successfully. Thanks!";
+"app_feedback_view_app_experience" = "Rate your experience";
 
 // MARK: - Language View
 "language_view_title" = "Language";
@@ -97,4 +107,4 @@
 "language_view_fr" = "French 🇫🇷";
 "language_view_pt" = "Portuguese 🇧🇷";
 "language_view_de" = "German 🇩🇪";
-"language_view_confirm_language_change" = "Are you sure you want to change the language? App will restart after you change the language";
+"language_view_confirm_language_change" = "Are you sure you want to change the language?";

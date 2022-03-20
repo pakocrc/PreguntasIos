@@ -17,7 +17,7 @@ struct AppSettings {
 //    }
 
     enum MoreSettings: String, CaseIterable {
-//        case feedback = "settings_more_feedback"
+        case feedback = "settings_more_feedback"
 //        case rateApp = "settings_more_rate_app",
         case termsAndConditions = "settings_more_terms_and_conditions"
         case privacyPolicy = "settings_more_privacy_policy"

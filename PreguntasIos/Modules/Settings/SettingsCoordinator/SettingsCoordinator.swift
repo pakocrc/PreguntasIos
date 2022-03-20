@@ -12,9 +12,13 @@ final class SettingsCoordinator: ObservableObject, Identifiable {
 
     @Published var playersSetupViewModel: PlayersSetupViewModel?
     @Published var languageViewModel: LanguageViewModel?
+    @Published var appFeedbackViewModel: AppFeedbackViewModel?
     @Published var openedURL: URL?
 
-    init() {
+    private let gameAPIService: GameApiService
+
+    init(gameAPIService: GameApiService) {
+        self.gameAPIService = gameAPIService
         self.settings = AppSettings(profile: AppSettings.ProfileSettings.allCases,
                                     more: AppSettings.MoreSettings.allCases)
     }
@@ -36,6 +40,8 @@ final class SettingsCoordinator: ObservableObject, Identifiable {
             if let url = URL(string: "https://www.facebook.com") {
                 open(url)
             }
+        case .feedback:
+            appFeedbackViewModel = AppFeedbackViewModel(gameAPIService: gameAPIService)
         }
     }
 

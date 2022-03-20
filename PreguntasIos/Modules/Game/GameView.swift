@@ -26,23 +26,42 @@ struct GameView: View {
                 .multilineTextAlignment(.center)
                 .padding()
 
+            if !(viewModel.currentQuestion?.author?.isEmpty ?? true) {
+                Text("\("game_view_by".localized()) \(viewModel.currentQuestion?.author ?? "")")
+                    .font(.body)
+                    .fontWeight(.light)
+                    .padding()
+            }
+
             Spacer()
 
             HStack(alignment: .center, spacing: 0) {
                 Button(action: viewModel.likeQuestionButtonPressed, label: {
                     if viewModel.likedQuestion {
                         Image(systemName: "heart.fill")
+                            .resizable()
+                            .frame(width: 25, height: 25, alignment: .center)
+                            .foregroundColor(.red)
                     } else {
                         Image(systemName: "heart")
+                            .resizable()
+                            .frame(width: 25, height: 25, alignment: .center)
+                            .foregroundColor(.primary)
                     }
                 }).padding()
 
                 Button(action: viewModel.questionFeedbackButtonPressed, label: {
                     Image(systemName: "hand.thumbsdown")
+                        .resizable()
+                        .frame(width: 25, height: 25, alignment: .center)
+                        .foregroundColor(.primary)
                 }).padding()
 
                 Button(action: viewModel.suggestQuestionButtonPressed, label: {
                     Image(systemName: "text.bubble")
+                        .resizable()
+                        .frame(width: 25, height: 25, alignment: .center)
+                        .foregroundColor(.primary)
                 }).padding()
             }
 
@@ -50,7 +69,8 @@ struct GameView: View {
 
             Button(action: viewModel.nextButtonPressed, label: {
                 Text("game_view_next_button".localized())
-                    .font(Font.body)
+                    .font(.body)
+                    .fontWeight(.semibold)
                     .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
             })
                 .foregroundColor(Color.primary)
@@ -85,13 +105,13 @@ struct GameView_Previews: PreviewProvider {
                                                              ¿Cúal crees tu que es el significado
                                                              de la vida en esta tierra?
                                                              """,
-                                                             en: "", pt: "", fr: "", de: "")
+                                                             en: "", pt: "", fr: "", de: "", author: "Anonymous")
                                                 ], categories: []),
-                                              apiService: GameAPIClient(),
+                                              apiService: GameApiClient(),
                                               parent: GameCoordinator(
                                                 questions: Questions(questions: [], categories: []),
                                                 category: .friends,
-                                                gameAPIService: GameAPIClient())))
+                                                gameAPIService: GameApiClient())))
 
             GameView(viewModel: GameViewModel(category: .friends, questions:
                                                 Questions(questions: [
@@ -101,13 +121,13 @@ struct GameView_Previews: PreviewProvider {
                                                              ¿Cúal crees tu que es el significado
                                                              de la vida en esta tierra?
                                                              """,
-                                                             en: "", pt: "", fr: "", de: "")
+                                                             en: "", pt: "", fr: "", de: "", author: "Pako 🇨🇷")
                                                 ], categories: []),
-                                              apiService: GameAPIClient(),
+                                              apiService: GameApiClient(),
                                               parent: GameCoordinator(
                                                 questions: Questions(questions: [], categories: []),
                                                 category: .friends,
-                                                gameAPIService: GameAPIClient())))
+                                                gameAPIService: GameApiClient())))
                 .preferredColorScheme(.dark)
         }
     }

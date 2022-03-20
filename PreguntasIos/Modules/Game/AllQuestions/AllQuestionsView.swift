@@ -10,13 +10,19 @@ import SwiftUI
 struct AllQuestionsView: View {
     @ObservedObject var viewModel: AllQuestionsViewModel
 
+    @State private var selection: String?
+
     var body: some View {
-        List {
-            ForEach(viewModel.questions.questions, id: \.id) { question in
+        List(viewModel.questions.questions, selection: $selection) { question in
+            Button(action: {
+                self.selection = question.id
+            }, label: {
                 Text("\(question.id)) \(getQuestionString(question))")
-                    .font(Font.body)
+                    .font(selection == question.id ? .headline : .body)
+                    .fontWeight(selection == question.id ? .bold : .regular)
                     .foregroundColor(Color.primary)
-            }
+            })
+                .buttonStyle(.plain)
         }
         .navigationTitle("all_questions_view_title".localized())
     }
@@ -36,6 +42,37 @@ struct AllQuestionsView: View {
 
 struct AllQuestionsView_Previews: PreviewProvider {
     static var previews: some View {
-        AllQuestionsView(viewModel: AllQuestionsViewModel(questions: Questions(questions: [], categories: [])) )
+        let questions = [
+            Question(id: "1",
+                     category: .friends,
+                     es: "Prueba",
+                     en: "Test",
+                     pt: "Prueba",
+                     fr: "Prueba",
+                     de: "Prueba",
+                     author: ""),
+            Question(id: "2",
+                     category: .friends,
+                     es: "Prueba2",
+                     en: "Test2",
+                     pt: "Prueba2",
+                     fr: "Prueba2",
+                     de: "Prueba2",
+                     author: "")
+        ]
+        Group {
+            AllQuestionsView(
+                viewModel: AllQuestionsViewModel(
+                    questions: Questions(
+                        questions: questions,
+                        categories: [])) )
+
+            AllQuestionsView(
+                viewModel: AllQuestionsViewModel(
+                    questions: Questions(
+                        questions: questions,
+                        categories: [])) )
+                .preferredColorScheme(.dark)
+        }
     }
 }

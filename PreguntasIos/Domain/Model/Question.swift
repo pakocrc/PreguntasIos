@@ -13,4 +13,5 @@ struct Question: Decodable, Identifiable {
     let pt: String
     let fr: String
     let de: String
+    let author: String?
 }

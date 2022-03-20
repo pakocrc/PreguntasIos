@@ -71,10 +71,9 @@
 "suggest_question_view_title" = "Sugerir Pregunta";
 "suggest_question_view_next_button" = "Enviar";
 "suggest_question_view_anonymous" = "Anónimo";
-"suggest_question_view_type_question_placeholder" = "Escribe la pregunta aquí...";
-"suggest_question_view_name_flag" = "Nombre + Bandera 🏳️";
-"suggest_question_view_name_flag_optional" = "(Opcional)";
-"suggest_question_view_type_name_flag_placeholder" = "Escribe nombre + bandera aquí...";
+"suggest_question_view_type_question" = "Pregunta";
+"suggest_question_view_name" = "Nombre";
+"suggest_question_view_flag_optional" = "Bandera (Opcional)";
 "suggest_question_view_error" = "No fue posible enviar la sugerencia. Por favor intenta de nuevo.";
 "suggest_question_view_success" = "Sugerencia enviada exitosamente";
 
@@ -84,11 +83,22 @@
 "question_feedback_view_feedback_type_mood_killer" = "Mala vibra";
 "question_feedback_view_feedback_type_other" = "Otro";
 "question_feedback_view_title" = "Feedback";
-"question_feedback_view_header" = "El feedback nos ayuda a mejorar. Por favor indícanos por qué no te gustó esta pregunta";
+"question_feedback_view_header" = "El feedback nos ayuda a mejorar. Por favor cuéntanos que piensas.";
 "question_feedback_view_next_button" = "Enviar";
-"question_feedback_view_text_field_placeholder" = "¿Algo más que quieras decirnos?";
+"question_feedback_view_text_field" = "¿Algo más que quieras decirnos?";
 "question_feedback_view_error" = "No fue posible enviar el feedback. Por favor intenta de nuevo.";
 "question_feedback_view_success" = "Feedback enviado exitosamente";
+
+// MARK: - Game View
+"game_view_by" = "Por: ";
+
+// MARK: - App Feedback
+"app_feedback_view_text_field" = "El feedback nos ayuda a mejorar. Por favor cuéntanos que piensas.";
+"app_feedback_view_next_button" = "Enviar";
+"app_feedback_view_title" = "Feedback del App";
+"app_feedback_view_error" = "No fue posible enviar el feedback. Por favor intenta de nuevo.";
+"app_feedback_view_success" = "Feedback enviado exitosamente. ¡Muchas gracias!";
+"app_feedback_view_app_experience" = "Califica tu experiencia";
 
 // MARK: - Language View
 "language_view_title" = "Lenguaje";
@@ -97,4 +107,4 @@
 "language_view_fr" = "Francés 🇫🇷";
 "language_view_pt" = "Portugués 🇧🇷";
 "language_view_de" = "Alemán 🇩🇪";
-"language_view_confirm_language_change" = "¿Seguro que deseas cambiar el lenguaje? El app se reiniciará luego del cambio";
+"language_view_confirm_language_change" = "¿Confirmas que deseas cambiar el lenguaje?";

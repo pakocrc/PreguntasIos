@@ -12,7 +12,7 @@ import SwiftUI
 struct PreguntasIosApp: App {
     @State private var loadingData = true
 
-    private let splashViewModel = SplashViewModel(apiClient: GameAPIClient())
+    private let splashViewModel = SplashViewModel(apiClient: GameApiClient())
 
     var body: some Scene {
         WindowGroup {

@@ -34,9 +34,9 @@ struct SplashView: View {
 struct SplashView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SplashView(viewModel: SplashViewModel(apiClient: GameAPIClient()))
+            SplashView(viewModel: SplashViewModel(apiClient: GameApiClient()))
 
-            SplashView(viewModel: SplashViewModel(apiClient: GameAPIClient()))
+            SplashView(viewModel: SplashViewModel(apiClient: GameApiClient()))
                 .preferredColorScheme(.dark)
         }
     }
