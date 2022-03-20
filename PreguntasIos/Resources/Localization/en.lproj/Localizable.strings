@@ -72,8 +72,8 @@
 "suggest_question_view_next_button" = "Send";
 "suggest_question_view_anonymous" = "Anonymous";
 "suggest_question_view_type_question" = "Question";
-"suggest_question_view_name" = "Name";
-"suggest_question_view_flag_optional" = "Flag (Optional)";
+"suggest_question_view_name" = "Name (optional)";
+"suggest_question_view_flag_optional" = "Flag (optional)";
 "suggest_question_view_error" = "Unable to send suggested question. Please try again.";
 "suggest_question_view_success" = "Suggestion sent successfully!";
 

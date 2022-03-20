@@ -13,19 +13,13 @@ struct TextFieldEditor: View {
     @Binding var textValue: String
     @State private var textEditorHeight: CGFloat = 50.0
 
-    private let textFieldLightColor = Color(
-        red: 239.0/255.0,
-        green: 243.0/255.0,
-        blue: 244.0/255.0,
-        opacity: 1.0)
-
     var body: some View {
         TextEditor(text: $textValue)
             .multilineTextAlignment(.leading)
             .frame(height: textEditorHeight, alignment: .center)
             .foregroundColor(colorScheme == .light ? Color.black : Color.primary)
             .padding(2)
-            .background(colorScheme == .light ? textFieldLightColor : Color.secondary)
+            .background(colorScheme == .light ? uiElementLightColor : Color.secondary)
             .cornerRadius(5)
             .padding(.horizontal)
             .onChange(of: textValue) { newValue in

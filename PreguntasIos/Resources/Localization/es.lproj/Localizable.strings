@@ -72,8 +72,8 @@
 "suggest_question_view_next_button" = "Enviar";
 "suggest_question_view_anonymous" = "Anónimo";
 "suggest_question_view_type_question" = "Pregunta";
-"suggest_question_view_name" = "Nombre";
-"suggest_question_view_flag_optional" = "Bandera (Opcional)";
+"suggest_question_view_name" = "Nombre (opcional)";
+"suggest_question_view_flag_optional" = "Bandera (opcional)";
 "suggest_question_view_error" = "No fue posible enviar la sugerencia. Por favor intenta de nuevo.";
 "suggest_question_view_success" = "Sugerencia enviada exitosamente";
 

@@ -42,8 +42,8 @@ final class SplashViewModel: ObservableObject {
 
     // MARK: - Helpers
     func loadData() {
-        loadMockData()
-//        loadInitialData()
+//        loadMockData()
+        loadInitialData()
     }
 
     private func loadInitialData() {

@@ -5,83 +5,117 @@
 //  Created by Francisco Cordoba on 2/3/22.
 //
 
+import Lottie
 import SwiftUI
 
 struct GameView: View {
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var viewModel: GameViewModel
 
+    private let animation = LottieView(name: "question-mark-animation", loopMode: .playOnce)
+    @State private var isAnimating = false
+
     var body: some View {
-        VStack {
-            Text("\(viewModel.currentPlayer)")
-                .font(.largeTitle)
-                .fontWeight(.semibold)
-                .multilineTextAlignment(.center)
-                .padding()
+        ZStack(alignment: .center) {
+            animation
+                .frame(maxWidth: 300, maxHeight: 300, alignment: .center)
+                .background(isAnimating ? (colorScheme == .light ? .gray : .white) : .clear)
+                .cornerRadius(150)
+                .onTapGesture(count: 2) {
+                    animation.animationView.stop()
+                    isAnimating = false
+                }
 
-            Spacer(minLength: 100)
-
-            Text(getQuestionString(viewModel.currentQuestion))
-                .font(.title2)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.center)
-                .padding()
-
-            if !(viewModel.currentQuestion?.author?.isEmpty ?? true) {
-                Text("\("game_view_by".localized()) \(viewModel.currentQuestion?.author ?? "")")
-                    .font(.body)
-                    .fontWeight(.light)
+            VStack {
+                Text("\(viewModel.currentPlayer)")
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.center)
                     .padding()
-            }
 
-            Spacer()
+                Spacer(minLength: 100)
 
-            HStack(alignment: .center, spacing: 0) {
-                Button(action: viewModel.likeQuestionButtonPressed, label: {
-                    if viewModel.likedQuestion {
-                        Image(systemName: "heart.fill")
-                            .resizable()
-                            .frame(width: 25, height: 25, alignment: .center)
-                            .foregroundColor(.red)
-                    } else {
-                        Image(systemName: "heart")
+                Text(getQuestionString(viewModel.currentQuestion))
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                    .padding()
+
+                if !(viewModel.currentQuestion?.author?.isEmpty ?? true) {
+                    Text("\("game_view_by".localized()) \(viewModel.currentQuestion?.author ?? "")")
+                        .font(.body)
+                        .fontWeight(.light)
+                        .padding()
+                }
+
+                Spacer()
+
+                HStack(alignment: .center, spacing: 0) {
+                    Button(action: viewModel.likeQuestionButtonPressed, label: {
+                        if viewModel.likedQuestion {
+                            Image(systemName: "heart.fill")
+                                .resizable()
+                                .frame(width: 25, height: 25, alignment: .center)
+                                .foregroundColor(.red)
+                        } else {
+                            Image(systemName: "heart")
+                                .resizable()
+                                .frame(width: 25, height: 25, alignment: .center)
+                                .foregroundColor(.primary)
+                        }
+                    }).padding()
+
+                    Button(action: viewModel.questionFeedbackButtonPressed, label: {
+                        Image(systemName: "hand.thumbsdown")
                             .resizable()
                             .frame(width: 25, height: 25, alignment: .center)
                             .foregroundColor(.primary)
-                    }
-                }).padding()
+                    }).padding()
 
-                Button(action: viewModel.questionFeedbackButtonPressed, label: {
-                    Image(systemName: "hand.thumbsdown")
-                        .resizable()
-                        .frame(width: 25, height: 25, alignment: .center)
-                        .foregroundColor(.primary)
-                }).padding()
+                    Button(action: viewModel.suggestQuestionButtonPressed, label: {
+                        Image(systemName: "text.bubble")
+                            .resizable()
+                            .frame(width: 25, height: 25, alignment: .center)
+                            .foregroundColor(.primary)
+                    }).padding()
+                }
 
-                Button(action: viewModel.suggestQuestionButtonPressed, label: {
-                    Image(systemName: "text.bubble")
-                        .resizable()
-                        .frame(width: 25, height: 25, alignment: .center)
-                        .foregroundColor(.primary)
-                }).padding()
-            }
+                Spacer()
 
-            Spacer()
+                Button(action: {
+                    handleAnimation()
+                    viewModel.nextButtonPressed()
 
-            Button(action: viewModel.nextButtonPressed, label: {
-                Text("game_view_next_button".localized())
-                    .font(.body)
-                    .fontWeight(.semibold)
+                }, label: {
+                    Text("game_view_next_button".localized())
+                        .font(.body)
+                        .fontWeight(.semibold)
+                        .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
+                })
+                    .foregroundColor(Color.primary)
+                    .background(Color.orange)
+                    .padding()
                     .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
+                    .cornerRadius(10)
+            }
+            .onChange(of: viewModel.currentQuestion, perform: { _ in
+                handleAnimation()
             })
-                .foregroundColor(Color.primary)
-                .background(Color.orange)
-                .padding()
-                .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
-                .cornerRadius(10)
+            .opacity(isAnimating ? 0.0 : 1.0)
         }
     }
 
-    func getQuestionString(_ randomQuestion: Question?) -> String {
+    private func handleAnimation() {
+        if isAnimating {
+            isAnimating = false
+            animation.animationView.stop()
+        } else {
+            isAnimating = true
+            animation.animationView.play()
+        }
+    }
+
+    private func getQuestionString(_ randomQuestion: Question?) -> String {
         var questionString = ""
         let emptyQuestionString = "game_view_empty_question".localized()
 

@@ -15,3 +15,9 @@ struct Question: Decodable, Identifiable {
     let de: String
     let author: String?
 }
+
+extension Question: Equatable {
+    static func == (rhs: Question, lhs: Question) -> Bool {
+        return rhs.id == lhs.id
+    }
+}
