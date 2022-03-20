@@ -7,30 +7,14 @@
 
 import SwiftUI
 
-enum AvocadoStyle {
-    case sliced, mashed
-}
-
-struct Order {
-    var avocadoStyle: AvocadoStyle
-}
-
 struct QuestionFeedbackView: View {
     @Environment(\.presentationMode) var presentationMode
-    @Environment(\.colorScheme) var colorScheme
 
     @ObservedObject var viewModel: QuestionFeedbackViewModel
 
-    @State var feedback = ""
-    @State var feedbackType: FeedbackType?
-
-    @State var order: Order = Order(avocadoStyle: .mashed)
-
-    var textFieldLightColor = Color(
-        red: 239.0/255.0,
-        green: 243.0/255.0,
-        blue: 244.0/255.0,
-        opacity: 1.0)
+    @State private var feedback = ""
+    @State private var feedbackType: FeedbackType?
+    @FocusState private var focusedField: Bool?
 
     var body: some View {
         NavigationView {
@@ -42,46 +26,49 @@ struct QuestionFeedbackView: View {
                     .padding()
 
                 VStack {
-                    Text("question_feedback_view_header".localized())
-                        .foregroundColor(Color.secondary)
-                        .font(.body)
+                    ScrollView {
+                        VStack(alignment: .leading) {
+                            Text("question_feedback_view_header".localized())
+                                .font(.body)
+                                .fontWeight(.semibold)
+                                .padding()
 
-                    VStack {
-                        ForEach(FeedbackType.allCases, id: \.self) { type in
-                            HStack {
-                                Button(action: {
-                                    feedbackType = type
-                                }, label: {
-                                    Image(systemName: type == feedbackType ? "circle.fill" : "circle")
-                                        .foregroundColor(Color.primary)
+                            VStack {
+                                ForEach(FeedbackType.allCases, id: \.self) { type in
+                                    HStack {
+                                        Button(action: {
+                                            feedbackType = type
+                                        }, label: {
+                                            Image(systemName: type == feedbackType ? "circle.fill" : "circle")
+                                                .foregroundColor(Color.primary)
 
-                                    Text(getFeedbackTypeText(type))
-                                        .font(Font.body)
-                                        .frame(height: 35, alignment: .leading)
-                                        .foregroundColor(Color.primary)
-                                })
+                                            Text(getFeedbackTypeText(type))
+                                                .font(Font.body)
+                                                .frame(height: 35, alignment: .leading)
+                                                .foregroundColor(Color.primary)
+                                        })
 
-                                Spacer()
+                                        Spacer()
+                                    }
+                                }
                             }
-                        }
-                    }
-                    .padding(.horizontal)
+                            .padding(.horizontal)
 
-//                    if feedbackType == .other {
-                    TextField(text: $feedback, prompt: Text(
-                        "question_feedback_view_text_field_placeholder".localized())) { }
-                                          .multilineTextAlignment(.leading)
-                                          .frame(height: 45, alignment: .topLeading)
-                                          .padding(.all)
-                                          .foregroundColor(colorScheme == .light ? Color.secondary : Color.primary)
-                                          .background(colorScheme == .light ? textFieldLightColor : Color.secondary)
-                                          .cornerRadius(5)
-                                          .padding(.bottom, 30)
-//                    }
+                            Text("question_feedback_view_text_field".localized())
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                                .padding([.leading, .top])
+
+                            TextFieldEditor(textValue: $feedback)
+                                .focused($focusedField, equals: true)
+                        }
+                        .padding()
+                    }
 
                     Spacer()
 
                     Button(action: {
+                        focusedField = nil
                         viewModel.sendButtonPressed(feedbackType: feedbackType, feedback: feedback)
                     }, label: {
                         Text("question_feedback_view_next_button".localized())
@@ -95,7 +82,7 @@ struct QuestionFeedbackView: View {
                         .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
                         .cornerRadius(10)
                 }
-                .padding()
+
             }
             .navigationTitle("question_feedback_view_title".localized())
             .alert("alert".localized(),
@@ -113,18 +100,23 @@ struct QuestionFeedbackView: View {
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
-                    }, label: { Image(systemName: "xmark") })
+                    }, label: {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.primary)
+                    })
                 }
             })
             .onChange(of: viewModel.dismissView) { _ in
                 presentationMode.wrappedValue.dismiss()
+            }
+            .onTapGesture {
+                focusedField = nil
             }
         }
     }
 
     private func getFeedbackTypeText(_ feedbackType: FeedbackType) -> String {
         var feedbackTypeString = ""
-
         switch feedbackType {
         case .badTranslation:
             feedbackTypeString = "question_feedback_view_feedback_type_bad_translation".localized()
@@ -136,22 +128,21 @@ struct QuestionFeedbackView: View {
         case .other:
             feedbackTypeString = "question_feedback_view_feedback_type_other".localized()
         }
-
         return feedbackTypeString
     }
 }
 
 struct QuestionFeedbackView_Previews: PreviewProvider {
     static var previews: some View {
-        let question = Question(id: "1", category: .friends, es: "", en: "", pt: "", fr: "", de: "")
+        let question = Question(id: "1", category: .friends, es: "", en: "", pt: "", fr: "", de: "", author: nil)
         Group {
             QuestionFeedbackView(viewModel:
-                                    QuestionFeedbackViewModel(gameAPIService: GameAPIClient(),
-                                                                      question: question))
+                                    QuestionFeedbackViewModel(gameAPIService: GameApiClient(),
+                                                              question: question))
 
             QuestionFeedbackView(viewModel:
-                                    QuestionFeedbackViewModel(gameAPIService: GameAPIClient(),
-                                                                      question: question))
+                                    QuestionFeedbackViewModel(gameAPIService: GameApiClient(),
+                                                              question: question))
                 .preferredColorScheme(.dark)
         }
     }

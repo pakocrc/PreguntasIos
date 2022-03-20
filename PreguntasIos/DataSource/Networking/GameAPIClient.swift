@@ -1,5 +1,5 @@
 //
-//  GameAPIClient.swift
+//  GameApiClient.swift
 //  PreguntasIos
 //
 //  Created by Francisco Cordoba on 25/2/22.
@@ -16,9 +16,12 @@ protocol GameApiService {
                           feedback: String,
                           question: String,
                           language: Language) -> AnyPublisher<String, APIError>
+    func appFeedback(feedback: String,
+                     appExperienceType: AppExperienceType,
+                     language: Language) -> AnyPublisher<String, APIError>
 }
 
-final class GameAPIClient: GameApiService {
+final class GameApiClient: GameApiService {
     func getQuestions() -> AnyPublisher<Questions, APIError> {
         request(.getQuestions)
     }
@@ -40,9 +43,15 @@ final class GameAPIClient: GameApiService {
                                   question: question,
                                   language: language))
     }
+
+    func appFeedback(feedback: String,
+                     appExperienceType: AppExperienceType,
+                     language: Language) -> AnyPublisher<String, APIError> {
+        request(.appFeedback(feedback: feedback, appExperienceType: appExperienceType, language: language))
+    }
 }
 
-extension GameAPIClient {
+extension GameApiClient {
     // MARK: - Request Methods
     private func request<T: Decodable>(_ endpoint: APIEndpoint) -> AnyPublisher<T, APIError> {
         do {

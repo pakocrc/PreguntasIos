@@ -13,6 +13,7 @@ final class GameViewModel: ObservableObject {
 
     @Published var category: QuestionCategory
     @Published var questions: [Question]
+
     @Published var players: [Player] = UserSettings().players
 //    @Published var players: [Player] = [Player(name: "Pako"), Player(name: "Kilay")]
 
@@ -22,6 +23,7 @@ final class GameViewModel: ObservableObject {
     @Published var likedQuestion = false
 
     private var currentPlayerIndex: Int = 0
+    // TODO: Validate that the question is not asked twice.
     private var questionsAsked = [String]()
     private var cancellables = Set<AnyCancellable>()
 
@@ -48,11 +50,19 @@ final class GameViewModel: ObservableObject {
         self.nextQuestion()
         self.nextPlayer()
         self.gameStarted()
+
+        self.nextButtonPressedProperty
+            .delay(for: 2, scheduler: DispatchQueue.main)
+            .sink { [weak self] _ in
+                print("Changing question")
+                self?.nextQuestion()
+                self?.nextPlayer()
+            }.store(in: &cancellables)
     }
 
+    private let nextButtonPressedProperty = PassthroughSubject<Void, Never>()
     func nextButtonPressed() {
-        nextQuestion()
-        nextPlayer()
+        nextButtonPressedProperty.send(())
     }
 
     func likeQuestionButtonPressed() {

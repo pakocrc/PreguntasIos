@@ -44,12 +44,12 @@ struct GameCoordinatorView_Previews: PreviewProvider {
             GameCoordinatorView(coordinator: GameCoordinator(
                 questions: Questions(questions: [], categories: []),
                 category: .friends,
-                gameAPIService: GameAPIClient()))
+                gameAPIService: GameApiClient()))
 
             GameCoordinatorView(coordinator: GameCoordinator(
                 questions: Questions(questions: [], categories: []),
                 category: .friends,
-                gameAPIService: GameAPIClient()))
+                gameAPIService: GameApiClient()))
                 .preferredColorScheme(.dark)
         }
     }

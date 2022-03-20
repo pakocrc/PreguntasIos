@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct SuggestQuestionView: View {
+
+    private enum Field: Int, CaseIterable {
+        case question, user
+    }
+
     @Environment(\.presentationMode) var presentationMode
-    @Environment(\.colorScheme) var colorScheme
 
     @ObservedObject var viewModel: SuggestQuestionViewModel
 
-    @State var question = ""
-    @State var user = ""
-
-    var textFieldLightColor = Color(
-        red: 239.0/255.0,
-        green: 243.0/255.0,
-        blue: 244.0/255.0,
-        opacity: 1.0)
+    @State private var question = ""
+    @State private var user = ""
+    @State private var flagSelected = "🇨🇷 Costa Rica"
+    @FocusState private var focusedField: Field?
 
     var body: some View {
         NavigationView {
@@ -31,48 +31,50 @@ struct SuggestQuestionView: View {
                     .font(.largeTitle)
                     .padding()
 
-                VStack(alignment: .leading) {
-                    TextField(text: $question, prompt: Text(
-                        "suggest_question_view_type_question_placeholder".localized())) { }
-                                          .multilineTextAlignment(.leading)
-                                          .frame(height: 45, alignment: .topLeading)
-                                          .padding(.all)
-                                          .foregroundColor(colorScheme == .light ? Color.secondary : Color.primary)
-                                          .background(colorScheme == .light ?textFieldLightColor : Color.secondary)
-                                          .cornerRadius(5)
-                                          .padding(.bottom, 30)
+                VStack {
+                    ScrollView {
+                        VStack(alignment: .leading) {
+                            Text("suggest_question_view_type_question".localized())
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                                .padding(.leading)
 
-                    HStack {
-                        Text("suggest_question_view_name_flag".localized())
-                            .font(.headline)
-                            .fontWeight(.semibold)
-                        Text("suggest_question_view_name_flag_optional".localized())
-                            .font(.caption)
-                            .fontWeight(.regular)
-                    }.padding(.leading)
+                            TextFieldEditor(textValue: $question)
+                                .focused($focusedField, equals: .question)
 
-                    TextField(text: $user,
-                              prompt: Text(
-                                "suggest_question_view_type_name_flag_placeholder".localized())) { }
-                                                  .multilineTextAlignment(.leading)
-                                                  .frame(height: 30, alignment: .topLeading)
-                                                  .padding(.all)
-                                                  .foregroundColor(
-                                                    colorScheme == .light ?
-                                                    Color.secondary :
-                                                        Color.primary
-                                                  )
-                                                  .background(
-                                                    colorScheme == .light ?
-                                                    textFieldLightColor :
-                                                        Color.secondary
-                                                  )
-                                                  .cornerRadius(5)
+                            Text("suggest_question_view_name".localized())
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                                .padding([.leading, .top])
+
+                            TextFieldEditor(textValue: $user)
+                                .focused($focusedField, equals: .user)
+
+                            Text("suggest_question_view_flag_optional".localized())
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                                .padding(.leading)
+                            Picker("", selection: $flagSelected) {
+                                ForEach(flagList, id: \.self) { flag in
+                                    Text(flag)
+                                        .foregroundColor(Color.primary)
+                                        .font(.body)
+                                        .fontWeight(.bold)
+                                }
+                            }
+                            .pickerStyle(MenuPickerStyle())
+                            .padding(.horizontal)
+                        }
+                        .padding()
+                    }
 
                     Spacer()
 
                     Button(action: {
-                        viewModel.sendButtonPressed(question: question, user: user)
+                        if !question.isEmpty {
+                            viewModel.sendButtonPressed(question: question, user: user, flag: flagSelected)
+                        }
+                        self.focusedField = nil
                     }, label: {
                         Text("suggest_question_view_next_button".localized())
                             .font(Font.body)
@@ -85,7 +87,6 @@ struct SuggestQuestionView: View {
                         .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
                         .cornerRadius(10)
                 }
-                .padding()
             }
             .alert("alert".localized(),
                    isPresented: $viewModel.showErrorMessage,
@@ -103,11 +104,17 @@ struct SuggestQuestionView: View {
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
-                    }, label: { Image(systemName: "xmark") })
+                    }, label: {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.primary)
+                    })
                 }
             })
             .onChange(of: viewModel.dismissView) { _ in
                 presentationMode.wrappedValue.dismiss()
+            }
+            .onTapGesture {
+                focusedField = nil
             }
         }
     }
@@ -118,9 +125,9 @@ struct SuggestQuestionView_Previews: PreviewProvider {
         Group {
             SuggestQuestionView(viewModel:
                                     SuggestQuestionViewModel(
-                                        gameAPIService: GameAPIClient()))
+                                        gameAPIService: GameApiClient()))
             SuggestQuestionView(viewModel: SuggestQuestionViewModel(
-                gameAPIService: GameAPIClient()))
+                gameAPIService: GameApiClient()))
                 .preferredColorScheme(.dark)
         }
     }

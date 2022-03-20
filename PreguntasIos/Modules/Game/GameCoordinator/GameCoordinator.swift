@@ -35,7 +35,6 @@ final class GameCoordinator: ObservableObject {
                                                questions: questions,
                                                apiService: gameAPIService,
                                                parent: self)
-
         case .all:
             self.allQuestionsViewModel = AllQuestionsViewModel(questions: questions)
 

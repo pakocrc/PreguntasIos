@@ -22,7 +22,7 @@ final class HomeCoordinator: ObservableObject {
     @Published private (set) var questions: Questions
     @Published private (set) var setupPlayers: Bool
 
-    private let gameAPIService = GameAPIClient()
+    private let gameAPIService = GameApiClient()
 
     init(questions: Questions) {
         self.questions = questions
@@ -31,7 +31,7 @@ final class HomeCoordinator: ObservableObject {
 
     // MARK: - ⚙️ Helpers
     func openSettingsCoordinator() {
-        self.settingsCoordinator = SettingsCoordinator()
+        self.settingsCoordinator = SettingsCoordinator(gameAPIService: gameAPIService)
     }
 
     func openPlayersSetupView() {

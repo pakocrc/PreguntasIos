@@ -30,6 +30,15 @@
 		8ABA139E27DEB1440001023C /* GameCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABA139D27DEB1440001023C /* GameCoordinatorView.swift */; };
 		8ABA13A127DEE95F0001023C /* QuestionFeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABA13A027DEE95E0001023C /* QuestionFeedbackViewModel.swift */; };
 		8ABA13A327DEE9670001023C /* QuestionFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABA13A227DEE9670001023C /* QuestionFeedbackView.swift */; };
+		8ACF4F2327E64EA400842494 /* TextFieldEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACF4F2227E64EA400842494 /* TextFieldEditor.swift */; };
+		8ACF4F2527E691F900842494 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACF4F2427E691F900842494 /* Constants.swift */; };
+		8ACF4F2827E6BE8200842494 /* AppFeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACF4F2727E6BE8200842494 /* AppFeedbackViewModel.swift */; };
+		8ACF4F2A27E6BE8B00842494 /* AppFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACF4F2927E6BE8B00842494 /* AppFeedbackView.swift */; };
+		8ACF4F2C27E6C86900842494 /* AppExperienceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACF4F2B27E6C86900842494 /* AppExperienceType.swift */; };
+		8ACF4F2E27E6F37B00842494 /* CategoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACF4F2D27E6F37B00842494 /* CategoryRowView.swift */; };
+		8ACF4F3127E6F5E500842494 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8ACF4F3027E6F5E500842494 /* Lottie */; };
+		8ACF4F3327E6F76B00842494 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACF4F3227E6F76B00842494 /* LottieView.swift */; };
+		8ACF4F3527E6F7CB00842494 /* question-mark-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 8ACF4F3427E6F7CB00842494 /* question-mark-animation.json */; };
 		8AD3EA6427D28C4200951276 /* HomeCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3EA6327D28C4200951276 /* HomeCoordinatorView.swift */; };
 		8AD3EA6627D28C6800951276 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3EA6527D28C6800951276 /* HomeCoordinator.swift */; };
 		8AD4D80027C6D3CB0027A1CC /* PreguntasIosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4D7FF27C6D3CB0027A1CC /* PreguntasIosApp.swift */; };
@@ -101,6 +110,14 @@
 		8ABA139D27DEB1440001023C /* GameCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinatorView.swift; sourceTree = "<group>"; };
 		8ABA13A027DEE95E0001023C /* QuestionFeedbackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionFeedbackViewModel.swift; sourceTree = "<group>"; };
 		8ABA13A227DEE9670001023C /* QuestionFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionFeedbackView.swift; sourceTree = "<group>"; };
+		8ACF4F2227E64EA400842494 /* TextFieldEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldEditor.swift; sourceTree = "<group>"; };
+		8ACF4F2427E691F900842494 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8ACF4F2727E6BE8200842494 /* AppFeedbackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeedbackViewModel.swift; sourceTree = "<group>"; };
+		8ACF4F2927E6BE8B00842494 /* AppFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeedbackView.swift; sourceTree = "<group>"; };
+		8ACF4F2B27E6C86900842494 /* AppExperienceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExperienceType.swift; sourceTree = "<group>"; };
+		8ACF4F2D27E6F37B00842494 /* CategoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRowView.swift; sourceTree = "<group>"; };
+		8ACF4F3227E6F76B00842494 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		8ACF4F3427E6F7CB00842494 /* question-mark-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "question-mark-animation.json"; sourceTree = "<group>"; };
 		8AD3EA6327D28C4200951276 /* HomeCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorView.swift; sourceTree = "<group>"; };
 		8AD3EA6527D28C6800951276 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		8AD4D7FC27C6D3CB0027A1CC /* PreguntasIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PreguntasIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ACF4F3127E6F5E500842494 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +180,7 @@
 		8A2E174A27CBC632003FE06E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				8ACF4F2627E6BE6D00842494 /* Feedback */,
 				8AA93E1B27DF6F1300C97CA1 /* SettingsCoordinator */,
 				8AA93E1627DF6B6F00C97CA1 /* Language */,
 				8AA93E1427DF6A9100C97CA1 /* AppSettings.swift */,
@@ -181,10 +200,12 @@
 		8A45797C27C964B600084EC3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8ACF4F2127E64E8600842494 /* Shared */,
 				8AA93E2327E012CF00C97CA1 /* SafariView.swift */,
 				8AED223927D83022006F7AB4 /* Extensions */,
 				8A45797D27C964BD00084EC3 /* APIErrorMapper.swift */,
 				8ADE9E0C27D8D94E003E4AE5 /* UserSettings.swift */,
+				8ACF4F2427E691F900842494 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -200,6 +221,7 @@
 		8A770F1A27C7B9A6007B32F4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8ACF4F3427E6F7CB00842494 /* question-mark-animation.json */,
 				8A45797F27C96A7E00084EC3 /* Localization */,
 				8A770F1B27C7B9D7007B32F4 /* Stubs */,
 				8ADE9E0B27D8D27A003E4AE5 /* MyPlayground.playground */,
@@ -269,11 +291,30 @@
 			path = QuestionFeedback;
 			sourceTree = "<group>";
 		};
+		8ACF4F2127E64E8600842494 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8ACF4F2227E64EA400842494 /* TextFieldEditor.swift */,
+				8ACF4F3227E6F76B00842494 /* LottieView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8ACF4F2627E6BE6D00842494 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				8ACF4F2727E6BE8200842494 /* AppFeedbackViewModel.swift */,
+				8ACF4F2927E6BE8B00842494 /* AppFeedbackView.swift */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
 		8AD3EA6227D28C3300951276 /* HomeCoordinator */ = {
 			isa = PBXGroup;
 			children = (
 				8AD3EA6527D28C6800951276 /* HomeCoordinator.swift */,
 				8AD3EA6327D28C4200951276 /* HomeCoordinatorView.swift */,
+				8ACF4F2D27E6F37B00842494 /* CategoryRowView.swift */,
 			);
 			path = HomeCoordinator;
 			sourceTree = "<group>";
@@ -351,6 +392,7 @@
 		8AD4D82A27C6D4CB0027A1CC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8ACF4F2B27E6C86900842494 /* AppExperienceType.swift */,
 				8AD4D83527C6D6180027A1CC /* FeedbackType.swift */,
 				8AD4D83327C6D5D50027A1CC /* GameMode.swift */,
 				8AD4D83127C6D5A10027A1CC /* Language.swift */,
@@ -459,6 +501,9 @@
 			dependencies = (
 			);
 			name = PreguntasIos;
+			packageProductDependencies = (
+				8ACF4F3027E6F5E500842494 /* Lottie */,
+			);
 			productName = PreguntasIos;
 			productReference = 8AD4D7FC27C6D3CB0027A1CC /* PreguntasIos.app */;
 			productType = "com.apple.product-type.application";
@@ -534,6 +579,9 @@
 				"pt-BR",
 			);
 			mainGroup = 8AD4D7F327C6D3CB0027A1CC;
+			packageReferences = (
+				8ACF4F2F27E6F5E500842494 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 8AD4D7FD27C6D3CB0027A1CC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -550,6 +598,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ACF4F3527E6F7CB00842494 /* question-mark-animation.json in Resources */,
 				8AD4D80727C6D3CC0027A1CC /* Preview Assets.xcassets in Resources */,
 				8A45798227C9747500084EC3 /* Localizable.strings in Resources */,
 				8A2E174427CBB1B5003FE06E /* Assets.xcassets in Resources */,
@@ -601,11 +650,16 @@
 			files = (
 				8AFE69F827CF992900BA719F /* PlayersSetupViewModel.swift in Sources */,
 				8AD4D84E27C6E63E0027A1CC /* SplashViewModel.swift in Sources */,
+				8ACF4F2327E64EA400842494 /* TextFieldEditor.swift in Sources */,
+				8ACF4F2827E6BE8200842494 /* AppFeedbackViewModel.swift in Sources */,
 				8AA93E2627E0183F00C97CA1 /* URL+Identifiable.swift in Sources */,
+				8ACF4F2A27E6BE8B00842494 /* AppFeedbackView.swift in Sources */,
+				8ACF4F2E27E6F37B00842494 /* CategoryRowView.swift in Sources */,
 				8ABA138E27DE80ED0001023C /* AllQuestionsViewModel.swift in Sources */,
 				8ABA139727DEA9990001023C /* SuggestQuestionViewModel.swift in Sources */,
 				8AA93E2427E012CF00C97CA1 /* SafariView.swift in Sources */,
 				8AFE6A0227D046AB00BA719F /* GameViewModel.swift in Sources */,
+				8ACF4F2527E691F900842494 /* Constants.swift in Sources */,
 				8AD4D83427C6D5D50027A1CC /* GameMode.swift in Sources */,
 				8AD3EA6427D28C4200951276 /* HomeCoordinatorView.swift in Sources */,
 				8AA93E1D27DF6F2100C97CA1 /* SettingsCoordinatorView.swift in Sources */,
@@ -617,6 +671,7 @@
 				8AD4D80027C6D3CB0027A1CC /* PreguntasIosApp.swift in Sources */,
 				8AA93E1527DF6A9100C97CA1 /* AppSettings.swift in Sources */,
 				8ABA139C27DEB13A0001023C /* GameCoordinator.swift in Sources */,
+				8ACF4F3327E6F76B00842494 /* LottieView.swift in Sources */,
 				8AA93E1827DF6B8600C97CA1 /* LanguageViewModel.swift in Sources */,
 				8AD3EA6627D28C6800951276 /* HomeCoordinator.swift in Sources */,
 				8AED223B27D83030006F7AB4 /* View+Navigation.swift in Sources */,
@@ -630,6 +685,7 @@
 				8AD4D83227C6D5A10027A1CC /* Language.swift in Sources */,
 				8AD4D86B27C713B20027A1CC /* EnvironmentConfig.swift in Sources */,
 				8AD4D83027C6D54F0027A1CC /* Questions.swift in Sources */,
+				8ACF4F2C27E6C86900842494 /* AppExperienceType.swift in Sources */,
 				8AD4D85127C6E92B0027A1CC /* NetworkResponse.swift in Sources */,
 				8AFE69F627CF991F00BA719F /* PlayersSetupView.swift in Sources */,
 				8AD4D82E27C6D5210027A1CC /* QuestionCategory.swift in Sources */,
@@ -815,7 +871,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"PreguntasIos/Preview Content\"";
 				DEVELOPMENT_TEAM = 9B334YL85T;
 				ENABLE_PREVIEWS = YES;
@@ -851,7 +907,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"PreguntasIos/Preview Content\"";
 				DEVELOPMENT_TEAM = 9B334YL85T;
 				ENABLE_PREVIEWS = YES;
@@ -885,7 +941,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = GFG4A69RG7;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -910,7 +966,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = GFG4A69RG7;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -934,7 +990,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = GFG4A69RG7;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -957,7 +1013,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = GFG4A69RG7;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1015,6 +1071,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8ACF4F2F27E6F5E500842494 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8ACF4F3027E6F5E500842494 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8ACF4F2F27E6F5E500842494 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8AD4D7F427C6D3CB0027A1CC /* Project object */;
 }
